@@ -1,5 +1,12 @@
 # Navigation in shell
 
+- [Understanding the Filesystem Tree](#understanding-the-filesystem-tree)
+- [The current working directory](#the-current-working-directory)
+- [Listing the content of a directory](#listing-the-content-of-a-directory)
+- [Changing the current working directory](#changing-the-current-working-directory)
+- [Some helpful shortcuts](#some-helpful-shortcuts)
+- [Important facts about filenames](#important-facts-about-filenames)
+
 You can navigate Linux filesystem using following commands:
 
 - `pwd` - print name of current working directory
@@ -78,6 +85,7 @@ A *relative pathname* starts from the working directory by using special symbols
 In almost all cases you can omit the `./` because it is implied.
 
 Previous example can be rewritten as follows:
+
 ```console
 [user@host usr] cd bin
 ```
@@ -95,4 +103,3 @@ Previous example can be rewritten as follows:
 - Filenames that begin with a period character are hidden. They can be listed using the `ls -a` command.
 - Linux has no concept of a "file extension". The content and/pr purpose of a file is determined by other means.
 - Limit he punctuation characters in the names of files to period, dash (hyphen), and underscore. *Most importantly, do not embed spaces in filenames*. If you want to represent spaces between words in a filename, use underscore character.
-
