@@ -1,5 +1,7 @@
 # Usability testing
 
+You give test participants the tasks to do, you observe, and you learn.
+
 ## Keeping testing simple - so do enough of it
 
 > Why didn't we do this sooner?
@@ -48,3 +50,80 @@ If you can't hire a professional to do the testing, do it yourself.
 Out-of-pocket costs | A few hundred dollars or less per round |
 
 ## How often should you test?
+
+Development team should spend one morning a month (or every Sprint) doing usability testing.
+
+In a morning, you can test three users, then debrief over lunch.
+
+Why a morning a month?
+
+- **It keeps it simple so you'll keep doing it.**
+- **It gives you what you need.** Problems identification.
+- **It frees you form deciding when to test.** Don't worry, there will always be *something* you can test each month.
+- **It make it more likely that people will attend.**
+
+## How many users do you need?
+
+The ideal number of participants for each round is three:
+
+- **The purpose of this kind of testing isn't to *prove* anything.** Proving things requires *quantitative* testing. Do-it-yourself tests are a qualitative method whose purpose is to *improve* things you do by identifying and fixing usability problems. The result is actionable insights, not proof.
+- **You don't need to find all of the problems.** *You can find more problems in a half a day than you can fix in a month.* So it's important to focus on fixing the most serious ones first.
+
+## How do you choose the participants?
+
+Recruiting people who are from your target audience isn't so important.
+
+**Recruit loosely and grade on a curve**
+
+Loosen up your requirements and then make allowances for the difference between your participants and your audience.
+
+You can recruit *some* people with required domain knowledge and some who *aren't* from your target audience:
+
+- **It's usually not a good idea to design a site so that only your target audience can use it.**
+- **We're all beginners under the skin.**
+- **Experts are rarely insulted by something that is clear enough for beginners.** Everybody appreciates clarity.
+
+## How do you find participants?
+
+Places and ways to recruit test participants:
+
+- user groups
+- trade shows
+- Craigslist
+- Facebook
+- Twitter
+- customer forums
+- a pop-up on your site
+- asking friends and neighbors
+
+If you're going to do your own recruiting, read report [How to recruit participants for usability studies](https://media.nngroup.com/media/reports/free/How_To_Recruit_Participants_for_Usability_Studies.pdf)
+
+Typical participant incentives for a one-hour test session range from 50$ to 100$ for "average" Web users to several hundred dollars for highly paid professionals.
+
+## Where do your test?
+
+You need a quiet space with a table and two chairs, And you'll need a computer with Internet access, a mouse, a keyboard, and a microphone.
+
+You'll be using screen sharing software to allow the team members to observe the tests from another room.
+
+You should also run screen recording software to capture a record stuff from the screen and speech of the facilitator and the participant.
+
+## Who should do the testing?
+
+The person who sits with the participant and leads them through the test is called the facilitator.
+
+Other than keeping the participants comfortable and focused on doing the tasks, the facilitator's main job is to encourage them to think out loud as much as possible.
+
+## Who should observe?
+
+As many people as possible.
+
+It can be a transformative experience for involved stakeholders.
+
+During the break after each test session, observers need to write down the *three* most serious usability problems they noticed during that session so they can share them in the debriefing.
+
+It's important to make the list short as the purpose of the debriefing is to identify the most serious problems.
+
+## What do you test, and then do you test it?
+
+
