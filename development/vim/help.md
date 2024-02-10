@@ -32,3 +32,11 @@ To start use more Vim features you should create a "vimrc" file.
     `:r $VIMRUNTIME/vimrc_example.vim`
 
 For more information type `:help vimrc-intro`
+
+## Completion
+
+You can use `CRTL-D` for command completion. Make sure Vim si not in compatible mode `:set nocp`.
+
+Start writing a command then press `CTRL-D` for the list of matched commands.
+
+Press `<TAB>` for command autocomplete.
