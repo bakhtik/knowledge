@@ -2,6 +2,13 @@
 
 > "Fortune favors the prepared mind." - Louis Pasteur
 
+- [Input](#input)
+- [Variables](#variables)
+- [Input and type](#input-and-type)
+- [Operations and operators](#operations-and-operators)
+- [Assignment and initialization](#assignment-and-initialization)
+- [Composite assignment operators](#composite-assignment-operators)
+
 ## Input
 
 Real programs tend to produce results based on some input we give them.
@@ -141,3 +148,77 @@ The compiler knows exactly which operations can be applied to each variable and 
 | less than             | <  | <  | <  | <  | <  |
 | less than or equal    | <= | <= | <= | <= | <= |
 
+The definition of integer `*`, `/`, and `%` guarantee that for two positive **int**s **a** and **b** we have **a**/**b** * **b** + **a**%**b** == **a**.
+
+Many operations are represented as *named functions*, like `sqrt(n)` to get the square root of **n**.
+
+## Assignment and initialization
+
+Assignment operator is represented as `=`.
+
+```c++
+int a = 3;  // a starts out with the value 3 (initialization)
+int b = a;  // b starts out with the copy of a's value (initialization)
+a = a + 7;  // a get value a+7 (assignment)
+```
+
+Logically, assignment and initialization are different, despite they have similar notation. Initialization specifies the type of a variable.
+
+Assignment is needed when we want to put a new value into an object. It is obvious, that assignment is most useful when you do things many times.
+
+### An example: detect repeated words
+
+```c++
+// program outputs adjacent repeated words
+#include "../std_lib_facilities.h"
+
+int main()
+{
+    string previous = "";   //previous word; initialized to "not a word"
+    string current;         // current word 
+    while (cin>>current) {  // read a stream of words
+        if (previous == current)    // check if the word is the same as last
+            cout << "repeated word: " << current << '\n';
+        previous = current;
+    }
+}
+```
+
+Loop **while** is repeated as long as the input operation `cin>>current`` succeeds - there are characters to read. The loop is terminated by giving the program an end-of-input character (*end-of-file*, EOF). In a Linux EOF is Ctrl+D. 
+
+One way of understanding program flow is to "play comouter", that is, to follow the program line for line, doing what it specifies.
+
+## Composite assignment operators
+
+```c++
+++counter   // counter = counter + 1
+a += 7      // a = a + 7
+c *= 2      // c = c * 2
+```
+
+In general, for any binary operator **oper**, **a oper= b** means **a = a oper b**.
+This compact notation directly reflects our ideas. For example, in many application domains *= and /= are referred to as "scaling".
+
+### An example: find repeated words
+
+```c++
+// program outputs adjacent repeated words with the clue of words location
+// in a sequence
+#include "../std_lib_facilities.h"
+
+int main()
+{
+    int number_of_words = 0;
+    string previous = " ";   // "not a word"
+    string current;        
+    while (cin>>current) {  
+        ++number_of_words;   // increase word count
+        if (previous == current)
+            cout << "word number " << number_of_words
+                << " repeated: " << current << '\n';
+        previous = current;
+    }
+}
+```
+
+Previous two programs are very similar. It is common to look for the similar problem and use a solution with suitable modification. Don't start from scratch unless you really have to.
