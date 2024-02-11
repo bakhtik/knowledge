@@ -8,6 +8,9 @@
 - [Operations and operators](#operations-and-operators)
 - [Assignment and initialization](#assignment-and-initialization)
 - [Composite assignment operators](#composite-assignment-operators)
+- [Names](#names)
+- [Types and objects](#types-and-objects)
+- [Type safety](#type-safety)
 
 ## Input
 
@@ -260,9 +263,9 @@ The notion of type is central to C++.
 
 ![types](img/types.png)
 
-**Int**s, **bool**s, **char**s, and **double**s are fixed size of memory. A **string** keeps track of number of characters it holds. Different strings can take up differen amount of space.
+**Int**s, **bool**s, **char**s, and **double**s are fixed size of memory. A **string** keeps track of number of characters it holds. Different strings can take up different amount of space.
 
-The meaning of bits in memory is competely dependent on the type used to access it. The bits of memory get meaning only when we decide how that momety is to be interpreted.
+The meaning of bits in memory is completely dependent on the type used to access it. The bits of memory get meaning only when we decide how that memory is to be interpreted.
 
 A **bit** is a unit of computer memory that can hold the value 0 or 1.
 
@@ -272,7 +275,7 @@ A program - or a part of it - is type-safe when objects are used only according 
 
 Always initialize your variables!
 
-A C++ compiler connot guarantee complete type safety, but we can avoid type safety violations through a combination of good coding practices and run-time checks. When we decide to do things that are (type) unsafe, we must do some checks ourselves.
+A C++ compiler cannot guarantee complete type safety, but we can avoid type safety violations through a combination of good coding practices and run-time checks. When we decide to do things that are (type) unsafe, we must do some checks ourselves.
 
 ### Safe conversions
 
@@ -280,14 +283,14 @@ C++ provides indirect conversion between types.
 
 If a value is always converted to an equal value or (for **double**s) to the best approximation of an equal value - these conversions are *safe*:
 
-- **bool** to ** char**
+- **bool** to **char**
 - **bool** to **int**
 - **bool** to **double**
 - **char** to **int**
 - **char** to **double**
 - **int** to **double**
 
-The most useful one is **int** to **double** because it allows us to mix **int**s and **dobule**s in expressions.
+The most useful one is **int** to **double** because it allows us to mix **int**s and **double**s in expressions.
 
 ```c++
 char c = 'x';
@@ -297,3 +300,32 @@ double d = 2.3 + 2;
 ```
 
 ### Unsafe conversions
+
+Unfortunately, C++ also allows for (implicit) unsafe conversions. By unsafe, we mean that a value can be implicitly turned into a value of another type that does not equal the original value.
+
+Such conversions are also called "narrowing" conversions, because they out a value into an object that may be too small ("narrow") to hold it.
+
+Basically we are trying to put a gallon into a pint pot:
+
+- **double** to **int**
+- **double** to **char**
+- **double** to **bool**
+- **int** to **char**
+- **int** to **bool**
+- **char** to **bool**
+
+There conversions are accepted by the compiler even thought they are unsafe.
+
+Not all **int** values have **char** equivalents, and the exact range of **char** values depends on the particular implementation ([-128:127] or [0:255]).
+
+C++11 introduced an initialization notation that outlaws narrowing conversions - a {}-list notation.
+
+```c++
+double x {2.7};	// OK
+int y {x};	// error: double -> int might narrow 
+    
+int a {1000};	// OK
+char b {a};	// error: int -> char might narrow
+```
+
+Use {} initializers to avoid accidents, and when you want a conversion, check value before assigning. The {}-list-based notation is known as *universal and uniform initialization*.
