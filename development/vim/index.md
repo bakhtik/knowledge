@@ -7,5 +7,6 @@
 - [Files](files.md)
 - [Insertion](insert.md)
 - [Help](help.md)
+- [Edit](edit.md)
 - [Spell checking](spell.md)
 - [Auto-completion](autocomplete.md)
