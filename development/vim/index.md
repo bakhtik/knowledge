@@ -8,5 +8,6 @@
 - [Insertion](insert.md)
 - [Help](help.md)
 - [Edit](edit.md)
+- [Vimrc](vimrc.md)
 - [Spell checking](spell.md)
 - [Auto-completion](autocomplete.md)
