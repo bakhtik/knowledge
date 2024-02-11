@@ -40,3 +40,10 @@ You can use `CRTL-D` for command completion. Make sure Vim si not in compatible 
 Start writing a command then press `CTRL-D` for the list of matched commands.
 
 Press `<TAB>` for command autocomplete.
+
+## Navigate hyperlinks in help manuals
+
+Press `CTRL-]` to jump to a subject under the cursor
+
+Press `CTRL-O` to jump back
+
