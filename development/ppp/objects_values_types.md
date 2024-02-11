@@ -222,3 +222,78 @@ int main()
 ```
 
 Previous two programs are very similar. It is common to look for the similar problem and use a solution with suitable modification. Don't start from scratch unless you really have to.
+
+## Names
+
+In a C++ program, a name starts with a letter and contain only letters, digits, and underscores. Otherwise, compiler will not accept it as name. 
+
+Names, starting with inderscores, such as **_foo**, are reserved for implementations and system entities. Never write those yourself.
+
+Names are case sensitive.
+
+The C++ language reserves many names as "keywords", such as **int**. You can't use then for naming your variables, types, and functions.
+
+You can use names from standard library, such as **string**, but you shouldn't.
+
+When you choose names for your variables and fucntions, choose meaningful names. Abbreviations and acronyms can confuse people, so use them sparingly.
+
+Short names are meaningful when used conventionally (a local variable or a loop index).
+
+Don't use overly long names. They makes it hard to read quickly.
+
+Our "house style" is to use underscores to separate words in an identifier, such as **element_count** (snake case).
+
+We are not using all capital letters, because that's conventionally reserved for marcos.
+
+We use an initial capital letter for types we define, such as **Square**. Take into account that C++ language and standard library don't use capital letters in type definition. Thus you can use this for determining custom types.
+
+## Types and objects
+
+The notion of type is central to C++.
+
+- A *type* defines a set of possible values and a set of operations (for an object).
+- An *object* is some memory that holds a value of a given type.
+- A *value* is a set of bits in memory interpreted according to a type.
+- A *variable* is a named object.
+- A *declaration* is a statement that gives a name to an object.
+- A *definition* is a declaration that sets aside memory for an object.
+
+![types](img/types.png)
+
+**Int**s, **bool**s, **char**s, and **double**s are fixed size of memory. A **string** keeps track of number of characters it holds. Different strings can take up differen amount of space.
+
+The meaning of bits in memory is competely dependent on the type used to access it. The bits of memory get meaning only when we decide how that momety is to be interpreted.
+
+A **bit** is a unit of computer memory that can hold the value 0 or 1.
+
+## Type safety
+
+A program - or a part of it - is type-safe when objects are used only according to the rules for their type. Unfortunately, there are ways of doing not type-safe operations, for example, suing an uninitialized variable.
+
+Always initialize your variables!
+
+A C++ compiler connot guarantee complete type safety, but we can avoid type safety violations through a combination of good coding practices and run-time checks. When we decide to do things that are (type) unsafe, we must do some checks ourselves.
+
+### Safe conversions
+
+C++ provides indirect conversion between types.
+
+If a value is always converted to an equal value or (for **double**s) to the best approximation of an equal value - these conversions are *safe*:
+
+- **bool** to ** char**
+- **bool** to **int**
+- **bool** to **double**
+- **char** to **int**
+- **char** to **double**
+- **int** to **double**
+
+The most useful one is **int** to **double** because it allows us to mix **int**s and **dobule**s in expressions.
+
+```c++
+char c = 'x';
+int i = c; 	// i = 120
+char c2 = i;	// c2 = 'x'
+double d = 2.3 + 2;
+```
+
+### Unsafe conversions
