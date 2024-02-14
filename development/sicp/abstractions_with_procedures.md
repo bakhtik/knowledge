@@ -6,6 +6,7 @@
   - [Naming and the Environment](#naming-and-the-environment)
   - [Evaluating combinations](#evaluating-combinations)
   - [Compound procedure](#compound-procedure)
+  - [The Substitution Model for Procedure Application](#the-substitution-model-for-procedure-application)
 
 
 > The act of mind dealing with simple ideas
@@ -153,3 +154,54 @@ You can use compound procedures as a building block in defining other procedures
 ```
 
 Compound procedures are used exactly the same way as primitive procedures.
+
+### The Substitution Model for Procedure Application
+
+To evaluate a combination whose operator names a compound procedure, the interpreter:
+
+- evaluates the elements of the combinations, and 
+- applies the procedure (which is the value of the operator of the combination) to the arguments  (which are the values of the operands of the combination)
+
+The application process is as follows:
+
+- To apply a compound procedure to arguments, evaluate the body of the procedure with each formal parameter replaced by the corresponding argument.
+
+```lisp
+(define (f a) (sum-of-squares (+ a 1) (* a 2)))
+(f 5)
+(sum-of-squares (+ 5 1) (* 5 2))
+(+ (suqare 6) (square 10))
+(+ (* 6 6) (* 10 10))
+(+ 36 100)
+136
+```
+
+The process is called the *substitution model* for procedure application. The purpose of the substitution is to help us think about procedure application, not to provide a description of how the interpreter really works.
+
+In general, when modeling phenomena is science or engineering, we begin with simplified, incomplete models. As we examine things in greater detail, these simple models become inadequate and must be replaced by more refined models. The substitution model is no exception.
+
+#### Applicative order versus normal order
+
+- *applicative-order evaluation*: "evaluate the arguments and then apply", the interpreter first evaluates the operator and operands and then applies the resulting procedure to the resulting arguments. This method the interpreter is actually uses.
+- *normal-order evaluation*: "fully expand and then reduce", it would first substitute operand expressions for the parameters until it obtained an expression involving only primitive operators, and would then perform the evaluation.
+
+Example of normal-order evaluation:
+
+```lisp
+(f 5)
+;; expansions
+(sum-of-squares (+ 5 1) (* 5 2))
+(+ (square (+ 5 1)) (square (* 5 2)))
+(+ (* (+ 5 1) (+ 5 1)) (* (* 5 2) (* 5 2)))\
+;; reductions
+(+ (* 6 6) (* 10 10))
+(+ 36 100)
+136
+```
+
+Note that some evaluations preformed twice here.
+
+Lisp uses applicative-order evaluations because:
+
+- it gives additional efficiency obtained from avoiding multiple evaluation of expressions
+- more significantly, normal-order evaluation becomes much complicated to deal with when we leave the realm of procedures that can be modeled by substitution
