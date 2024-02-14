@@ -4,6 +4,7 @@
 
 - [Objectives and tools](#objectives-and-tools)
 - [Expressions](#expressions)
+- [Statements](#statements)
 
 From a broad view, all that a program ever does is to compute; that is, it takes some inputs and produces some output.
 
@@ -169,3 +170,81 @@ int i3 {d/i};	// error: double -> int conversion may narrow
 ```
 
 Beware that it is easy to forget about integer division in an expression that also contains floating-point operands.
+
+## Statements
+
+An expression computes a value from a set of operands using some operators.
+
+In C++ you use language constructs called *statements* to express things like:
+
+- producing several values
+- repeating something
+- choosing among alternatives
+- get input or produce output
+
+### Declaration statement
+
+```c++
+int a = 7;
+```
+
+### Expression statement
+
+An expression statement is simply an expression followed by a semicolon.
+
+```c++
+a = b;
+++b;
+```
+
+In general, we want a statement to have some effect. Thus, expression statements are typically assignments, I/O statements, or function calls.
+
+With not careful placing of semicolon you can create an *empty statement*, a statement doing nothing: 
+
+```c++
+if (x == 5);
+```
+
+### Selection
+
+#### if-statements
+
+The simplest form of selection is an **if**-statement, which selects between two alternative.
+
+```c++
+if(a<b)
+    cout << a << " < " << b << "\n";
+else
+    cout << b << " < " << a << "\n";
+```
+
+If its condition is true, the first statement is executed; otherwise, the second statement is.
+
+We tend to make programs assuming that the user enters proper input. It's not always the case, unfortunately.
+
+We must always test our programs with "bad" input. A program should behave sensibly even is its users don't.
+
+The general form of an **if**-statement is
+
+```c++
+if (expression)
+    statement
+else
+    statement
+```
+
+We can use an **if** statement as the **else** part of an **if**-statement (there is no an "**else-if**-statement" in C++):
+
+```c++
+if (expression)
+    statement;
+else if (expression)
+    statement;
+else
+    statement;
+```
+
+In this way, we can write arbitrarily complex tests ans associate a statement with each alternative. However, please remember that one of the ideals for code is simplicity, rather than complexity.
+
+
+
