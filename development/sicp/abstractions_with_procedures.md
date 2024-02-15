@@ -205,3 +205,29 @@ Lisp uses applicative-order evaluations because:
 
 - it gives additional efficiency obtained from avoiding multiple evaluation of expressions
 - more significantly, normal-order evaluation becomes much complicated to deal with when we leave the realm of procedures that can be modeled by substitution
+
+### Conditional expressions and predicates
+
+A *case analysis* is a construct that can make tests and perform different operations depending on the result of a test.
+
+In Lisp there is a special form for case analysis notation - `cond` (stands for "conditional").
+
+```lisp
+(define (abs x)
+  (cond ((> x 0) x)
+        ((= x 0) 0)
+        ((< x 0) (- x))))
+```
+
+The general form of a conditional expression is
+
+```
+(cond (<p1> <e1>)
+      (<p2> <e2>)
+      ...
+      (<pn> <en>))
+```
+
+Parenthesized pairs of expressions `(<p> <e>)` called *clauses*.
+
+`<p>` is a *predicate* - that is,  an expression whose value is interpreted as either true or false.
