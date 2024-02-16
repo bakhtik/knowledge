@@ -236,3 +236,52 @@ Special Purpose: No right-to-object to processing under legitimate interests via
 
 Allowable Lawful Basis: Legitimate Interests
 
+## Features
+
+### Feature 1: Match and combine data from other data source
+
+Information about user's activity on this service may be mathced and combined with other information relating to you and originating from various sources.
+
+### Feature 2: Link different devices
+
+User's device might be considerted as likely linked to other devices that belong to user or to user's household.
+
+### Feature 3: Identify devices based on information transmitted automatically
+
+Creating an identifier suing data collected automatically from a device for specific characteristics:
+
+- IP address
+- user-agent string
+
+This feature does not allow the creation of an identifier based on data collected actively ising JavaScript or API.
+
+## Special Features
+
+### Special Feature 1: Use precise geolocation data
+
+User can accept using his/her precise location (within a radius of less than 500 meters).
+
+### Special Feature 2: Actively scan device characteristics for identification
+
+User can accept using his/her device certain characteristics to distinguish it from other devices:
+
+- user-agent
+- installed fonts or plugins
+- screen resolution, etc.
+
+This special feature implies using active collection of information via JavaScript or API.
+
+## Categories of data
+
+1. IP Address
+2. Device characteristics
+3. Device identifiers
+4. Probablistic identifiers
+5. Authentication-derived identifiers
+6. Browsing and interaction data
+7. User-provided data
+8. Non-precise location data
+9. Precise location data
+10. Users' profiles
+11. Privacy choices
+
