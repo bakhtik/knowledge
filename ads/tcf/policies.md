@@ -17,6 +17,9 @@ The goal of the Framework is to help players in the online ecosystem meet Genera
 Signal
 : any signal sent by a CMP on behalf of a Publisher to Vendors that includes information about transparency, consent, and status of vendors, purposes, features and restrictions.
 
+Legal Basis
+: a lawful ground for processing defined in Article 6 GDPR and supported by the TCF, which are consent in accordance with Article 6(1)(1) GDPR and legitimate interests in accordance with Article 6(1)(f) GDPR.
+
 ## Policies for CMPs
 
 - A CMP must disclose Vendors' GVL information
@@ -53,6 +56,8 @@ Signal
 
 ## Definition of purposes
 
+![purposes](img/purposes.png)
+
 ### Purpose 1: Store and/or access information on device
 
 The following information can be stored or read on users' device to recognize it each time it connects to an app/website:
@@ -68,6 +73,8 @@ The following information can be stored or read on users' device to recognize it
   - screen size
   - supported technologies
 
+Allowable Lawful Basis: Consent
+
 ### Purpose 2: Use limited data to select advertising
 
 Advertising present to you can be based on limited data, such as:
@@ -76,6 +83,8 @@ Advertising present to you can be based on limited data, such as:
 - user's non-precise location (accuracy lower than 500m and/or latitude and longitude data that lower than two decimal points)
 - user's device type
 - content user is interacting with
+
+Allowable Lawful Basis: Consent, Legitimate Interests
 
 ### Purpose 3: Create profiles for personalised advertising
 
@@ -94,8 +103,136 @@ Creating or improving a profile about user (possible interests and personal aspe
 
 Profile can be used to show personalized advertising.
 
+Allowable Lawful Basis: Consent
+
 ### Purpose 4: Use profiles to select personalised advertising 
 
 Advertising presented to you on this service can be based on your advertising profiles.
 
 Requires consent for processing under a legitimate inters for Purpose 2 to be used.
+
+Allowable Lawful Basis: Consent
+
+### Purpose 5: Create profiles to personalise content
+
+Creating or improving a profile about user (possible interests and personal aspects) using:
+
+- user activity on the service
+  - submitted forms
+  - consumed *non-advertising* content
+- other information about user
+  - user information from previous activity on the service or other websites/apps
+- device data
+  - device type and capabilities
+  - user agent
+  - URL
+  - IP address
+
+Profile can be used to show personalized content.
+
+Allowable Lawful Basis: Consent
+
+### Purpose 6: Use profiles to select personalised content
+
+Content presented to you on this service can be based on your content personalisation profiles.
+
+Personalising advertising content is not included in Purpose 6.
+
+Allowable Lawful Basis: Consent
+
+### Purpose 7: Measure advertising performance
+
+Collect information about the relevance of advertising campaigns:
+
+- which ads is presented (shown ads)
+- how user interact with ads (clicked ads, redirected to website, product was bought, etc.) 
+- measure how brand suitable the content where it was served
+- measure the percentage the ads have been shown and for how long
+- measure users engagement with the ads (clicks)
+- determine how many users/devices and ad was served to
+  - time when user saw the ad
+  - device characteristics
+  - ad attribution, conversions, sales lift
+  - report on an individual and aggregate level
+
+Allowable Lawful Basis: Consent, Legitimate Interests
+
+### Purpose 8: Measure content performance
+
+Collect information about the relevance of (non-advertising) content that is shown to user:
+
+- which content is presented
+- how user interact with the (non-advertising) content (if it reached its intended audience)
+- measure user engagement
+  - how long you spend on this service and the web pages you visit
+  - mature of the engagement (click, hover, scroll etc.)
+- determine how many users/devices and ad was served to
+  - time when user spend saw content
+  - device characteristics
+  - measure user referrals
+
+Allowable Lawful Basis: Consent, Legitimate Interests
+
+### Purpose 9: Understand audience through statistics or combinations of data from different sources
+
+Generating reports regarding user interactions and those of other users with advertising or (non-advertising) content based on combination of data sets:
+
+- user profiles
+- statistics
+- market research
+- analytics data
+
+in order to identify common characteristics.
+
+Allowable Lawful Basis: Consent, Legitimate Interests
+
+### Purpose 10: Develop and improve services
+
+Using information about user interaction with ads or content for improving products and services. The purpose **does not** include creation/update of user profiles and identifiers.
+
+Allowable Lawful Basis: Consent, Legitimate Interests
+
+### Purpose 11: Use limited data to select content
+
+
+Content present to you can be based on limited data, such as:
+
+- website or app user is using
+- user's non-precise location (accuracy lower than 500m and/or latitude and longitude data that lower than two decimal points)
+- user's device type
+- content user is interacting with
+
+Allowable Lawful Basis: Consent, Legitimate Interests
+
+## Special Purposes
+
+![special purposes](img/special_purposes.png)
+
+### Special Purpose 1: Ensure security, prevent and detect fraud, and fix errors
+
+User data can be used for:
+
+- monitor/prevent fraudulent activity (ad clicks by bots)
+- ensure systems work properly and securely
+- for bugs fixing
+
+Special Purpose: No right-to-object to processing under legitimate interests via the Framework,
+
+Allowable Lawful Basis: Legitimate Interests
+
+### Special Purpose 2: Deliver and present advertising and content
+
+In order to ensure the *technical compatibility* of the content or advertising and to facititat the transmission of the content and and to user's device the following information is required:
+
+- IP address
+- User Agent type
+- Supported language
+- Connection type
+- Size and type of the ad or content requested
+
+Logging that the ad/content was delivered, without recording any personal data about the user.
+
+Special Purpose: No right-to-object to processing under legitimate interests via the Framework,
+
+Allowable Lawful Basis: Legitimate Interests
+
