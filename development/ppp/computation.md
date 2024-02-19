@@ -294,3 +294,63 @@ default:
 }
 ```
 
+If you will forget to add **break** statement, then you can "drop through" from one case into another, executing statements of both of them.
+
+### Iteration
+
+*Iteration* is we you repeat doing something to a series of elements of a data structure.
+
+#### while-statements
+
+```c++
+// calculate and print a table of squares 0-99
+int main()
+{
+    int i = 0;      // start from 0
+    while (i<100) {
+        cout << i << '\t' << square(i) << '\n';
+        ++i;        // increment i (i = i+1)
+    }
+}
+```
+
+- A while-statement is a way to repeat some statement (to loop).
+- `int i` here is a *loop variable* or a *control variable* used to keep track of a number of loop iterations. The loop variable for a while-statement must be defined and initialized outside (before) the while-statement.
+- An initializer for the loop variable is zero in this example.
+- A termination criterion is 100. If control variable is 100, we leave the while-statement and execute what comes next.
+- Output statement and increment are the statements to repeat (the *body* of the loop). The loop body is a block (delimited by curly braces).
+
+#### Blocks
+
+A *block* or a *compound statement* is a sequence of statements delimited by curly braces { and }.
+
+The empty block { } is sometimes useful for expression that nothing is to be done.
+
+```c++
+if (a<=b) {	// do nothing
+}
+else {
+    int t = a;
+    a = b;
+    b = t;
+}
+```
+
+#### for-statements
+
+A for-statement is like a while-statement except that the management of the control variable is concentrated at the top where it is easy to see and understand. Prefer use a for-statement.
+
+```c++
+// calculate and print a table of squares 0-99
+int main()
+{
+    for (int i = 0; i<100; ++i)
+        cout << i << '\t' << square(i) << '\n';
+}
+```
+
+Never modify the loop variable inside the body of a for-statement.
+
+There is also a simpler "range-for-loop" for traversing collections of data, such as vectors.
+
+## Functions
