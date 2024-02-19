@@ -246,5 +246,111 @@ else
 
 In this way, we can write arbitrarily complex tests ans associate a statement with each alternative. However, please remember that one of the ideals for code is simplicity, rather than complexity.
 
+#### switch-statements
 
+The most common form of selection is a selection based on comparison of a value against several constants.
 
+```c++
+switch (unit) {
+case 'i':
+    cout << "something";
+    break;
+case 'c':
+    cout << "another thing";
+    break;
+default:
+    cout << "default thing";
+    break;
+}
+```
+
+The value presented in parentheses after the **switch** is compared to a set of constants. If the value equals the constant in a **case** label, the statement for that case is chosen. Each case is terminated by a **break**. If the value doesn't match any of the **case** labels, the statement identified by the **default** label is chosen (using which is a good practice).
+
+#### Switch technicalities
+
+Some technical details about **switch**-statements:
+
+- The value on which we switch must be of an integer, **char**, or enumeration.
+- The values in the **case** labels must be constant expressions. They cannot be variables.
+- You cannot use the same value for two **case** labels.
+- You can use several **case** labels for a single case.
+- Don't forget to end each **case** with a **break**.
+
+Note. To select based on a **string** you have to use an **if**-statement or a **map**.
+
+```c++
+char a;
+
+switch (a) {
+case '0': case '2': case '4': case '6': case '8':
+    cout << "is even\n";
+    break;
+case '1': case '3': case '5': case '7': case '9':
+    cout << "is odd\n";
+    break;
+default:
+    cout << "is not a digit\n";
+    break;
+}
+```
+
+If you will forget to add **break** statement, then you can "drop through" from one case into another, executing statements of both of them.
+
+### Iteration
+
+*Iteration* is we you repeat doing something to a series of elements of a data structure.
+
+#### while-statements
+
+```c++
+// calculate and print a table of squares 0-99
+int main()
+{
+    int i = 0;      // start from 0
+    while (i<100) {
+        cout << i << '\t' << square(i) << '\n';
+        ++i;        // increment i (i = i+1)
+    }
+}
+```
+
+- A while-statement is a way to repeat some statement (to loop).
+- `int i` here is a *loop variable* or a *control variable* used to keep track of a number of loop iterations. The loop variable for a while-statement must be defined and initialized outside (before) the while-statement.
+- An initializer for the loop variable is zero in this example.
+- A termination criterion is 100. If control variable is 100, we leave the while-statement and execute what comes next.
+- Output statement and increment are the statements to repeat (the *body* of the loop). The loop body is a block (delimited by curly braces).
+
+#### Blocks
+
+A *block* or a *compound statement* is a sequence of statements delimited by curly braces { and }.
+
+The empty block { } is sometimes useful for expression that nothing is to be done.
+
+```c++
+if (a<=b) {	// do nothing
+}
+else {
+    int t = a;
+    a = b;
+    b = t;
+}
+```
+
+#### for-statements
+
+A for-statement is like a while-statement except that the management of the control variable is concentrated at the top where it is easy to see and understand. Prefer use a for-statement.
+
+```c++
+// calculate and print a table of squares 0-99
+int main()
+{
+    for (int i = 0; i<100; ++i)
+        cout << i << '\t' << square(i) << '\n';
+}
+```
+
+Never modify the loop variable inside the body of a for-statement.
+
+There is also a simpler "range-for-loop" for traversing collections of data, such as vectors.
+
+## Functions
