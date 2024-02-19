@@ -246,5 +246,51 @@ else
 
 In this way, we can write arbitrarily complex tests ans associate a statement with each alternative. However, please remember that one of the ideals for code is simplicity, rather than complexity.
 
+#### switch-statements
 
+The most common form of selection is a selection based on comparison of a value against several constants.
+
+```c++
+switch (unit) {
+case 'i':
+    cout << "something";
+    break;
+case 'c':
+    cout << "another thing";
+    break;
+default:
+    cout << "default thing";
+    break;
+}
+```
+
+The value presented in parentheses after the **switch** is compared to a set of constants. If the value equals the constant in a **case** label, the statement for that case is chosen. Each case is terminated by a **break**. If the value doesn't match any of the **case** labels, the statement identified by the **default** label is chosen (using which is a good practice).
+
+#### Switch technicalities
+
+Some technical details about **switch**-statements:
+
+- The value on which we switch must be of an integer, **char**, or enumeration.
+- The values in the **case** labels must be constant expressions. They cannot be variables.
+- You cannot use the same value for two **case** labels.
+- You can use several **case** labels for a single case.
+- Don't forget to end each **case** with a **break**.
+
+Note. To select based on a **string** you have to use an **if**-statement or a **map**.
+
+```c++
+char a;
+
+switch (a) {
+case '0': case '2': case '4': case '6': case '8':
+    cout << "is even\n";
+    break;
+case '1': case '3': case '5': case '7': case '9':
+    cout << "is odd\n";
+    break;
+default:
+    cout << "is not a digit\n";
+    break;
+}
+```
 
