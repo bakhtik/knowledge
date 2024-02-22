@@ -354,3 +354,88 @@ Never modify the loop variable inside the body of a for-statement.
 There is also a simpler "range-for-loop" for traversing collections of data, such as vectors.
 
 ## Functions
+
+A *function* is a named sequence of statements. A function can return a result - a *return value*.
+
+We may not use the result of a function call, but we have to give a function exactly the arguments it requires.
+
+The syntax of a *function definition* is:
+
+```
+type identifier ( parameter-list )
+function-body
+```
+
+The *function body* is the block that actually does the work.
+
+The list of arguments is called a *parameter list* and its elements are called *parameters* (or *formal arguments*). The list of parameters can be empty, and if we don't want to return a result we give `void` (meaning "nothing") as the return type.
+
+```c++
+void write_sorry()
+{
+    cout << "Sorry\n";
+}
+```
+
+### Why bother with functions?
+
+Functions 
+
+- makes the computation logically separate
+- makes the program text clearer
+- provides opportunity to reuse functions
+- eases testing
+
+Programs are usually easier to write and to understand if each function performs a *single* logical action.
+
+One of the purposes of functions is to simplify code by separating out complicated calculations as named functions.
+
+### Function declarations
+
+Almost all of the time we are just interested in knowing how to call a function - seeing the definition would just be distracting, as we often don't want to look at a function body.
+
+C++ provides a way of supplying that information separate from the complete function definition - a *function declaration*.
+
+```c++
+int square(int);
+double sqrt(double);
+```
+
+Note the terminating semicolons.
+
+So, if you just want to use a function, you simply write - or more commonly `#include` - its declaration. The function definition can be elsewhere.
+
+We use declarations to keep most of the code out of sight to allow us to concentrate on a single part of a program at a time.
+
+## vector
+
+To do just about anything of interest in a program, we need a collection of data to work on.
+
+A `vector` is simply a sequence of elements that you can access by an index.
+
+![vector](img/vector.png)
+
+We refer to an element by subscripting the name of the `vector` with the element's index, so here the value of v[1] is 7. Indices for a `vector` always start with 0 and increase by 1.
+
+A `vector` doesn't just store its elements, it also stores its size.
+
+To make a `vector` we need to specify the type of the elements and the initial set of elements. The element type comes after `vector` in angle brackets (< >).
+
+A `vector` will only accept elements of its declared element type.
+
+```c++
+vector<int> v = {5, 7, 9, 4, 6, 8}; // vector of 6 ints
+vector<string> philosophers = {"Kant", "Pluto", "Hume", "Kierkegaard"}; // vector of 4 strings
+```
+
+We can also define a `vector` of a given size without specifying the element values. The elements are given a default value according to the element type.
+
+```c++
+vector<int> vi(6); // vector of 6 ints initialized to 0
+vector<string> vs(4); // vector of 4 strings initialized to ""
+```
+
+The string with no characters "" is called the *empty string*.
+
+Please note that you cannot refer to a nonexistent element of a `vector`, this will cause run-time error.
+
