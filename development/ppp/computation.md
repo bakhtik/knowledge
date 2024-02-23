@@ -439,3 +439,84 @@ The string with no characters "" is called the *empty string*.
 
 Please note that you cannot refer to a nonexistent element of a `vector`, this will cause run-time error.
 
+### Traversing a `vector`
+
+We can print the elements of a `vector` like this:
+
+```c++
+    vector<int> v = {5, 7, 9, 4, 6, 8};
+    for (int i=0; i<v.size(); ++i)
+        cout << v[i] << '\n';
+```
+
+The call `v.size()` gives the number of elements of the `vector` called `v`. The range for a `vector v` is [`0:v.size()`) - the half-open sequence of elements. The first element is `v[0]` and the last `v[v.size()-1]`. If `v.size()==0`, `v` has no elements - an empty `vector`.
+
+You can traverse `vector`'s elements using a range-`for`-loop:
+
+```c++
+    vector<int> v = {5, 7, 9, 4, 6, 8};
+    for (int x : v)
+        cout << x << '\n';
+```
+
+### Growing a `vector`
+
+Often, we start a `vector` empty and grow it to its desired size as we read or compute the data we want in it.
+
+The `push_back()` member function of `vector` adds new element to the end of the `vector`.
+
+```
+member-function-call:
+    object_name.member-function-name ( argument-list)
+```
+
+### A numeric example
+
+```c++
+// read some temperatures into a vector
+// and coumpute mean and median temperatures
+int main()
+{
+    vector<double> temps;
+    for (double temp; cin>>temp; )  // read into temp; exit loop if input is not double
+        temps.push_back(temp);
+
+    // compute mean temperature:
+    double sum = 0;
+    for(int x : temps) sum += x;
+    cout << "Average temperature: " << sum/temps.size() << '\n';
+
+    // compute median temperature:
+    sort(temps);    // median is when half of he values are lower and the other half are higher
+    cout << "Median temperature: " << temps[temps.size()/2] << '\n';
+}
+```
+
+`cin>>temp` is true if a value was read correctly (it's a double) and false otherwise.
+
+We used `for` instead of `while` to limit the scope of input variable `temp`.
+
+### A text example
+
+If you need to analyze data, you'll use `vector` (or a similar data structure).
+
+```c++
+// simple dictionary: list of sorted words
+int main()
+{
+    vector<string> words;
+    for (string temp; cin>>temp; )  // read whitespace-separated words
+        words.push_back(temp);
+    cout << "Number of words: " << words.size() << '\n';
+
+    sort(words);
+
+    for (int i = 0; i<words.size(); ++i)
+        if (i==0 || words[i-1]!=words[i])
+            cout << words[i] << "\n";
+}
+```
+
+We can stop reading string input by providing "not ordinary" character. In Linux you can terminate as input stream using `Ctrl+D`.
+
+You can compare strings using lexicographical ordering.
