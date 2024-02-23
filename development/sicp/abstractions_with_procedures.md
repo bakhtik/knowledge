@@ -231,3 +231,46 @@ The general form of a conditional expression is
 Parenthesized pairs of expressions `(<p> <e>)` called *clauses*.
 
 `<p>` is a *predicate* - that is,  an expression whose value is interpreted as either true or false.
+
+Predicates are evaluated starting from `<p1>`. If a predicate with value true is found, the interpreter returns the value of the corresponding *consequent expression* `<e>` of the clause as the value of the conditional expression. if none of the `<p>`'s is found to be true, the value of the `cond` is undefined.
+
+The word *predicate* is used for
+- procedures that return true or false
+- expressions that evaluate to true or false
+
+Another way to write the absolute-value procedure is
+
+```lisp
+(define (abs x)
+  (cond ((< x 0) (-x))
+        (else x)))
+```
+
+`else` is a special symbol that can be used in place of the `<p>` in the final clause of a `cond`. This causes the `cond` to return as its value the value of the corresponding `<e>` whenever all previous clauses have been bypassed.
+
+Another way to write the absolute-value procedure:
+
+```lisp
+(define (abs x)
+  (if (< x 0)
+      (- x)
+      x))
+```
+
+This uses the special form `if`, a restricted type of conditional that can be used when there are precisely two cases in the case analysis.
+
+The general form for is
+
+```
+(if <predicate> <consequent> <alternative>)
+```
+
+Please note that the `<e>` part of each `cond` clause may be a sequence of expressions. The value of the final expression in the sequence is returned as a value of the `cond`. In an `if` expressions the `<consequent>` and `<alternative>` must be single expressions.
+
+In addition to primitive predicates such as <, =, and >, there are logical composition operations, which enable us to construct compound predicates:
+
+- `(and <e1>...<en>)`: if all `<e>` evaluates to false, the value of last `<e>` is returned as the value of the `and` expression.
+- `(or <e1>...<en>)`: if any `<e>` evaluates to true value, that value is returned as the value of the `or` expressions.
+- `(not <e>)`
+
+Notice that `and` and `or` are special forms, not procedures, because the subexpressions are not necessarily all evaluated (short-circuit). `not` is an ordinary procedure.
