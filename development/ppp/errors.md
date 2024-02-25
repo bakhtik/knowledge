@@ -86,4 +86,4 @@ Note that a misspelled function name doesn't usually give a linker error. Instea
 The linkage rules stated above also hold for all other entities like variables and types:
 
 - exactly one definition
-- many declarations that agree exactly on declaration's type
+- many declarations that agree exactly on definition's type
