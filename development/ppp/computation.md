@@ -5,6 +5,8 @@
 - [Objectives and tools](#objectives-and-tools)
 - [Expressions](#expressions)
 - [Statements](#statements)
+- [Functions](#functions)
+- [Vector](#vector)
 
 From a broad view, all that a program ever does is to compute; that is, it takes some inputs and produces some output.
 
