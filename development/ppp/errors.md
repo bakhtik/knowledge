@@ -86,4 +86,127 @@ Note that a misspelled function name doesn't usually give a linker error. Instea
 The linkage rules stated above also hold for all other entities like variables and types:
 
 - exactly one definition
-- many declarations that agree exactly on declaration's type
+- many declarations that agree exactly on definition's type
+
+## Run-time errors
+
+Bad function arguments can lead to run-time errors. There are two alternatives to deal with this:
+
+- Let the caller of the function deal with bad arguments.
+- Let the called function deal with bad arguments.
+
+### The caller deals with errors
+
+This alternative is "Let the user beware!" approach. For example if we are using a library function that cannot modify.
+
+This approach leads to the messy, error-prone and "brittle" code that breaks easily. And the approach imply called function implementation details exposure.
+
+### The callee deals with errors
+
+A "function must check its own arguments" approach ("the callee checks"). 
+
+One benefit of the latter approach is that the argument-checking code is in one place where the arguments are to be used.
+
+Reasons why don't people do that approach always:
+
+- *We can't modify the function definition:* a library function, in example.
+- *The called function doesn't know what to do in case of error:* Also a typical case for library function.
+- *The called function doesn't know where it was called from:* Sometimes you want an error message to be more specific.
+- *Performance:* For some programs, introducing checking overhead can be critical.
+
+Check your arguments in a function unless you have a good reason no to.
+
+### Error reporting
+
+What should you do when you found an error?
+
+Sometimes you can return an "error value".
+
+```c++
+// calculate area of a rectangle
+// return -1 to indicate a bad argument
+int area(int length, int width)
+{
+    if (length<=0 || width<=0) return -1;
+    return length*width;
+}
+```
+
+Called function do the checking, while caller can handle the error as desired.
+
+Problems with the approach:
+
+- Both the called function and all callers must test.
+- A caller can forget to test.
+- Many function do not have an "extra" return value that can use to indicate an error.
+
+## Exceptions
+
+The fundamental idea is to separate detection of an error (which should be done in a called function) from the handling of an error (which should be done in the calling function) while ensuring that a detected error cannot be ignored. Nothing makes errors handling easy, but exceptions make it easier.
+
+The basic idea is that if a function finds an error that it cannot handle, it does not `return` normally; instead, it `throw`s and exception indicating what went wrong. Any direct or indirect caller can `catch` the exception, that is, specify what to do if the called code used `throw`. A function expresses interest in exceptions by using a `try`-block listing the kinds of exceptions it wants to handle in the `catch` parts of the `try`-block. If no caller catches an exception, the program terminates.
+
+### Bad arguments
+
+```c++
+class Bad_area {};  // a type specifically for reporting errors from area()
+
+// calculate area of a rectangle;
+// trow a Bad_area exception in case of a bad argument
+int area(int length, int width)
+{
+    if (length<=0 || width<=0) throw Bad_area{};
+    return length*width;
+}
+
+int main()
+{
+    try {
+        int x = -1;
+        int y = 2;
+
+        int area1 = area(x,y);
+    }
+    catch (Bad_area) {
+        cout << "Oops! bad arguments to area()\n";
+    }
+}
+```
+
+`Bad_area` is a new type with the only purpose to provide something unique to `throw` from `area()` so that some `catch` can recognize it as the kind of exception thrown by `area()`.
+
+The notation `throw Bad_are{}` means "Make an object of type `Bad_area` and `throw` it.
+
+Note how the handling of the error is cleanly separated from the detection of the error: `main()` knows nothing about who `throw`ed the exception, and called function knows nothing about which function  (if any) cares to `catch` the exception.
+
+### Range errors
+
+In the context of C++, we often refer to "collections of data" as *containers*. The most common and useful standard library container is the `vector`.
+
+What happens if we try to use an element of the `vector` with an index (subscript) that isn't in the valid range [0:v.size())? The general notation [low:high) means indices from low to high-1, that is, including low but not high.
+
+In this case we will get an *off-by-one error*, a *range error* because the index wasn't in the range required by the `vector`, and a *bounds error* because the index was not within the limits of the `vector`.
+
+Range-`for` loops cannot get out of bounds, but they also don't give indices information without extra effort.
+
+The subscript operation (called `vector::operator[]`) of `vector` knows the size of the `vector`, so it can check. If that check fails, the subscript operation throws an exception of type `out_of_range`.
+
+```c++
+int main()
+{
+    try {
+        vector<int> v;
+        for (int x; cin>>x; )
+            v.push_back(x);
+        for (int i=0; i<=v.size(); ++i)
+            cout << "v[" << i << "] == " << v[i] << '\n';
+    } catch (out_of_range) {
+        cerr << "Oops! Range error\n";
+        return 1;
+    } catch (...) {     // catch all other exceptions
+        cerr << "Exception: something went wrong\n";
+        return 2;
+    }
+}
+```
+
