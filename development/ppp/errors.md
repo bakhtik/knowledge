@@ -6,6 +6,11 @@
 - [Sources of errors](#sources-of-errors)
 - [Compile-time errors](#compile-time-errors)
 - [Link-time errors](#link-time-errors)
+- [Run-time errors](#run-time-errors)
+- [Exceptions](#exceptions)
+- [Logic errors](#logic-errors)
+- [Estimation](#estimation)
+- [Debugging](#debugging)
 
 ## Introduction
 
@@ -210,3 +215,103 @@ int main()
 }
 ```
 
+Note that a range error is really a special case of the argument errors.
+
+### Bad input
+
+Once bad input is detected, it is dealt with using the same techniques and language features as argument errors and range errors.
+
+During the early stages of development, we often want to indicate that we have found an error but aren't yet ready to do anything clever about it; we just want to report the error and terminate the program.
+
+```c++
+double some_function()
+{
+    double d = 0;
+    cin >> d;
+    if (!cin) error("couldn't read a double in 'some_funciton()'");
+    // do something useful
+}
+```
+
+If input stream is in bad state, the value of the `cin` will be evaluated to false.
+
+The standard library defines a few types of exceptions like `out_of_range` and `runtime_error`.
+
+`runtime_error` holds a string that can be used by an error handler.
+
+```c++
+void  error(string s)
+{
+    throw runtime_error(s);
+}
+
+int main()
+try {
+    // ...our program...
+    return 0;	// 0 indicates success
+}
+catch (runtime_error& e) {
+    cerr << "runtime error: " << e.what() << '\n';
+    return 1;	// 1 indicates failure
+}
+```
+
+The call `e.what()` extracts the error message from the `runtime_error`. The `&` is an indicator that we want to "pass the exception by reference".
+
+The `cerr` is exactly like `cout` except that it is meant for error output. By default both `cerr` and `cout` write to the screen, but `cerr` more resilient to errors and can be diverted to a different target, such as a file. And it serves for the code self-documentation.
+
+Both `out_of_range` and `runtime_error` are "exceptions", so we can catch `exception` to deal with both:
+
+```c++
+int main()
+try {
+    // our program
+    return 0;   // 0 indicates success
+}
+catch (exception& e) {
+    cerr << "error: " << e.what() << '\n';
+    return 1;   // 1 indicates failure
+}
+catch (...) {
+    cerr << "Oops: unknown exception!\n";
+    return 2;   // 2 indicates failure
+}
+```
+
+We add `catch(...)` to handle exceptions of any types whatsoever.
+
+If you don't catch an exception, you'll get a default system error (an "uncaught exception" error).
+
+### Narrowing errors
+
+Given exceptions (and templates) we can write a function that tests and throws a `runtime_error` exception if an assignment or initialization would lead to a changed value.
+
+```c++
+int x1 = narrow_cast<int>(2.9);	// throws
+int x2 = narrow_cast<int>(2.0); // OK
+char c1 = narrow_cast<char>(1066); // throws
+char c2 = narrow_cast<char>(85); // OK
+```
+
+The `<...>` are used when we need to specify a type, rather than a value, to express an idea. They are called *template arguments*. We can use `narrow_cast` when we need to convert a value and we are not sure "if it will fit"; it is defined in `std_lib_facilities.h` and implemented using `error()`.
+
+Note that a cast ("type conversion") doesn't change its operand; it produces a new value.
+
+## Logic errors
+
+After removing initial compiler and linker errors, the program runs. Typically, there is no output, or it's wrong.
+
+Logic errors are usually the most difficult to find and eliminate, because at this stage the computer does what you asked it to.
+
+## Estimation
+
+Unless we have some idea of what is a correct answer will be like - even approximately - we don't have a clue whether our result is reasonable. Always ask yourself this questions:
+
+1. Is this answer to this particular problem plausible?
+2. How would I recognize a plausible result?
+
+We are not asking exact answer, the program is for this. All we want is to know that the answer is not ridiculous.
+
+*Estimation* (or *guesstimation*) is a noble art that combines common sense and some very simple arithmetic applied to a few facts.
+
+## Debugging
