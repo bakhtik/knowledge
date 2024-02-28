@@ -315,3 +315,59 @@ We are not asking exact answer, the program is for this. All we want is to know 
 *Estimation* (or *guesstimation*) is a noble art that combines common sense and some very simple arithmetic applied to a few facts.
 
 ## Debugging
+
+When you have written some code you have to find and remove the errors. That process is usually called *debugging* and the errors *bugs*.
+
+Debugging works roughly like this:
+
+1. Get the program to compile.
+2. Get the program to link.
+3. Get the program to do what it is supposed to do.
+
+The key question in debugging is 
+
+> How would I know if the program actually worked correctly?
+
+We'd like to design our programs so that bugs have nowhere to hide.
+
+### Practical debug advice
+
+Start thinking about debugging before you write the first line of code.
+
+Decide how to report errors.
+
+Make the program easy to read so that you have a chance of spotting the bugs:
+
+- Comment your code well:
+  - The name of the program. 
+  - The purpose of the program. 
+  - Who wrote this code and when.
+  - Version numbers.
+  - What complicated code fragments are supposed to do. 
+  - What the general design ideas are.
+  - How the source code is organized.
+  - What assumptions are made about inputs.
+  - What parts of the code are still missing and what cases are still not handled.
+- Use meaningful names.
+- Use a consistent layout of code.
+- Break code into small functions, each expressing a logical action.
+- Try to avoid functions longer than a page or two.
+- Avoid complicated code sequences.
+- Try to avoid nested loops, nested if-statements, complicated conditions, etc.
+- Use library facilities rather than your own code when you can.
+
+Get the program to compile.
+
+Some common compile-time errors:
+
+- string literal is not terminated
+- character literal is not terminated
+- block is not terminated
+- set of parentheses is not matched. The compiler generally reports this kind of error "late".
+- name is not declared
+- header is not included
+- name is used before it declared
+- name misspelled
+- statement is not terminated with a semicolon
+
+
