@@ -11,6 +11,8 @@
 - [Logic errors](#logic-errors)
 - [Estimation](#estimation)
 - [Debugging](#debugging)
+- [Pre- and post-conditions](#pre--and-post-conditions)
+- [Testing](#testing)
 
 ## Introduction
 
@@ -370,4 +372,62 @@ Some common compile-time errors:
 - name misspelled
 - statement is not terminated with a semicolon
 
+After the programs compiles and links, next comes the hardest part: figuring out why the program doesn't do what it's supposed to.
 
+When looking for a bug, carefully follow the code statement by statement from the last point that you are sure it was correct.
+
+- Often you "see" what you expect to see rather than what you wrote.
+- Often there is too much code being executed between the point where the program produced the last good output and the next output (or lack of output). Use debugging tool's "step through" - executing statements one by one, or use temporary extra `cerr` statements.
+- Insert statements that check invariants (conditions that always hold) in sections of code suspected of harboring bugs. In example, function's argument checking.
+
+A statement that states (asserts) an invariant is called an *assertion* (or *assert*).
+
+Remember, messy code can easily harbor bugs. Keep your code as simple, logical, and well formatted as possible.
+
+## Pre- and post-conditions
+
+A requirement of a function upon its argument is often called a *pre-condition*: it must be true for the function to perform its action correctly.
+
+Always document pre-conditions in comments. A function with no comments will be assumed to handle every possible argument value.
+
+When you write a function, always consider if you can write a quick check of the pre-conditions, and do so unless you have a good reason not to like:
+
+- It would slow down the code. Do not fall in the trap of "premature optimization", though.
+- It is too complicated to check. In some cases, checking can be much harder than the function's job itself.
+
+```c++
+int my_complicated_function(int a, int b, int c)
+// the arguments are positive and a < b < c
+{
+    if (!(0<a && a<b && b<c)) // ! means "not" and && means "and"
+        error("bad argument for mcf");
+    // ...
+}
+```
+
+Writing pre-conditions (even as comments) also has a significant benefit for the quality of the programs: it forces you to think about what a function requires and thus helps you avoid many design mistakes.
+
+### Post-conditions
+
+We typically have to state what a function returns; that is, if we return a value from a function we are *always* making a promise about the return value.
+
+```c++
+int area(int length, int width)
+// calculate area of rectange;
+// pre-conditions: length and width are positive
+// post-conditions: returns a positive value that is the area
+{
+    if (length<=0 || width<=0) error("area() pre-condition");
+    int a = length*width;
+    if (a<=0) error("area() post-condition");
+    return a;
+}
+```
+
+Pre- and post-conditions provide basic sanity checks in code.
+
+## Testing
+
+In addition to debugging we need a systematic way to search for errors. This is called *testing*. Basically, testing is executing a program with a large and systematically selected set of inputs and comparing the result to what was expected. A run with a given set of inputs is called a *test case*.
+
+Good testers are worth their weight in gold.
