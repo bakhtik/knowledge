@@ -40,9 +40,35 @@ Study of economics starts by acknowledging life's trade-offs.
 
 ### Principle 2: The cost of something is what you give up to get it
 
+Because people face trade-offs, making decision requires comparing the costs and benefits of alternative courses of action.
+
+The **opportunity cost** of an item is what you give up to get that item. When making any decision, decision makers should be aware of the opportunity costs that accompany each possible action.
+
+In example, the larges cost of going to college - your time, that you can spend working in example. Or college athletes can earn millions if they drop out of school and play professional sports.
+
 ### Principle 3: Rational people think at the margin
 
+Economists assume that people are rational. **Rational people** systematically and purposefully do the best they can to achieve their objectives, given the available opportunities.
+
+Economists use the term **marginal change** to describe a small incremental adjustment to an exiting plan of action. Keep in mind that *margin* means "edge", so marginal changes are adjustments around the edges of what you are doing. Rational people often make decisions by comparing *marginal benefits* and *marginal costs*.
+
+For example, the *average* cost of flying a passenger is $500, but the *marginal* cost is merely the cost of the can of soda that the extra standby passenger (for an empty seat) will consume. As long as the standby passenger pays more (say $300) than the marginal cost, selling the ticket is profitable.
+
+A person's willingness to pay for a good is based on the marginal benefit of an extra unit of the good would yield. Water is essential, but its marginal cost of an extra cup is small because water is plentiful. By contrast, no one needs diamonds to survive, but they are so rare, so people consider the marginal benefit of an extra diamond to be large.
+
+A rational decision maker takes an action if and only if the marginal benefit of the action exceeds the marginal cost.
+
 ### Principle 4: People respond to incentives
+
+An **incentive** is something (such as the prospect of a punishment or reward) that induces a person to act. Because rational people make decisions by comparing costs and benefits, they respond to incentives.
+
+Incentives are key to analyzing how markets work. For example, a higher price in a market provides an incentive for buyers to consume less and an incentive for  sellers to produce more.
+
+Many policies change the cost or benefits that people face and, as a result, alter their behavior. A tax on gasoline can encourage people to drive smaller cars, to carpool, take public transportation, etc.
+
+When policymakers fail to consider how their policies affect incentives, they often end up facing unintended consequences. For example, public policy regarding auto safety alters a driver's cost-benefit calculation of a safer driving. Drivers start to drive faster which lead to a larger number of accidents.
+
+When analyzing any policy, we must consider not only the direct effects but also the less obvious indirect effects that work through incentives. If the policy changes incentives, it will cause people to alter their behavior.
 
 ## How people react
 
