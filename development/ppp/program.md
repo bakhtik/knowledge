@@ -201,7 +201,7 @@ Note, that for simple tokens, like '+', we don't need the value, so we don't use
 
 A user-defined type can have member functions (operations) as well as data members.
 
-We provided two member functions to give us a more convenient way of initializing `Token`s:
+We provided two member functions to give us a more convenient way of initializing `Token`s. 
 
 We can now initialize ("construct") `Token` objects:
 
@@ -211,3 +211,78 @@ Token t2 {'8', 11.5};
 ```
 
 ### Using tokens
+
+We can read input into a `vector` of `Token`s:
+
+```c++
+Token get_token();  // function to read a token from cin
+
+vector<Token> tok;  // we'll put the tokens here
+
+int main()
+{
+    while (cin) {
+        Token t = get_token();
+        tok.push_back(t);
+    }
+    // ..
+}
+```
+
+It is still unclear how to evaluate expression after reading all of the tokens. Left-to-right evaluation is not working.
+
+First tries to code the problem are important in understanding of the problem and can reveal some useful stuff, like notion of a token in the example. However we should do very little programming before we have done at least a bit of analysis (understanding the problem) and design (deciding on an overall structure of a solution).
+
+### Back to the drawing board
+
+We would like to be able to compute several expressions in a single invocation of our program; so our pseudo code grows to
+
+```c++
+while (not_finished) {
+    read_a_line
+    claculate    // do the work
+    write_result
+}
+```
+
+It is important to avoid "feature creep" early in a project (like adding support of variables into our simple calculator). Instead, always first build a simple version, implementing the essential features only. Once you have something running, you can get more ambitious. It is far easier to build program in stages that all at once. Once we start adding "neat features" it is hard to stop.
+
+So how could we read, store, and evaluate expressions? Obviously, tokenizing is part of the solution, but only part.
+
+## Grammars
+
+There is a standard answer to the question of how to make sense of expressions: first input characters are read and assembled into tokens.
+
+After tokens have been produced, the program must ensure that complete expressions are understood correctly. The standard answer is that we write a *grammar* defining the syntax of our input and then write a program that implements the rules of that grammar. For example:
+
+```c++
+// a simple expression grammar:
+Expression:
+    Term
+    Expression "+" Term  // addition
+    Expression "-" Term  // subtraction
+Term:
+    Primary
+    Term "*" Primary     // multiplication
+    Term "/" Primary     // division
+    Term "%" Primary     // reminder (modulo)
+Primary:
+    Number
+    "(" Expression ")"   // grouping
+Number:
+    floating-pont-literal
+```
+
+This is a set of simple rules. An `Expression` must be a `Term` or end with a `Term`, which must be a `Primary` or end with a `Primary`, and a `Primary` must start with a `(` or be a `Number`. A `Number` must be a `floating-point-literal`.
+
+From our first tentative pseudo code to this approach, sing tokens and a grammar is actually a huge conceptual jump. This usually can only be done with the help of experience, literature, or Mentors.
+
+To articulate an explanation in sufficient detail and precisely enough for a computer to understand, we need a notation - and a grammar is a most powerful and conventional tool for that.
+
+How do you read a grammar? Basically, given some input, you start with the "top rule", `Expression`, and search through the rules to find a match for the tokens as they are read. Reading a stream of tokens according to a grammar is called *parsing*, and a program that does that is often called a *parser* or a *syntax analyzer*. Our parser reads the tokens from left to right, just like we type them and read them.
+
+![grammar](img/grammar.png)
+
+This represents the path we followed through the definitions. Note how the `Term*Primary` rule ensures that `11.5` is multiplied by `7` rather than added to `45`.
+
+###  A detour; English grammar
