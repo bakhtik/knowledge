@@ -273,7 +273,13 @@ Number:
     floating-pont-literal
 ```
 
-This is a set of simple rules. An `Expression` must be a `Term` or end with a `Term`, which must be a `Primary` or end with a `Primary`, and a `Primary` must start with a `(` or be a `Number`. A `Number` must be a `floating-point-literal`.
+This is a set of simple rules.
+
+- An `Expression` must be a `Term` or end with a `Term`, which must be a `Primary` or end with a `Primary`, and a `Primary` must start with a `(` or be a `Number`. A `Number` must be a `floating-point-literal`. 
+- If `Primary` isn't preceded by a `/`, `*`, or `%`, then it is a complete `Term`.
+- If `Term` isn't preceded by a `+` or `-`, then it is a complete `Expression`.
+- If `Expression` is followed by a `+` or `-`, then it is the end of the first part of an `Expression` and we must look for the `Term` after `+` or `-`.
+- If `Term` is followed by a `*`, `/`, or `%`, then we need to look for a `Primary` to finish `Term*(/,%)Primary` rule.
 
 From our first tentative pseudo code to this approach, sing tokens and a grammar is actually a huge conceptual jump. This usually can only be done with the help of experience, literature, or Mentors.
 
@@ -285,4 +291,139 @@ How do you read a grammar? Basically, given some input, you start with the "top 
 
 This represents the path we followed through the definitions. Note how the `Term*Primary` rule ensures that `11.5` is multiplied by `7` rather than added to `45`.
 
-###  A detour; English grammar
+###  A detour: English grammar
+
+Look at the following grammar for a very small subset of English:
+
+```
+Sentence:
+    Noun Verb                      // e.g., C++ rules
+    Sentence Conjunction Sentence  // e.g., Birds fly but fish swim
+Conjunction:
+    "and"
+    "or"
+    "but"
+Noun:
+    "bird"
+    "fish"
+    "C++"
+Verb:
+    "rules"
+    "fly"
+    "swim"
+```
+
+A sentence is built from parts of speech.
+
+![English grammar](img/english.png)
+
+### Writing a grammar
+
+Writing a simple grammar is pretty straightforward: we need to know how to:
+
+1. Distinguish a rule from a token
+2. Put one rule after another (*sequencing*)
+3. Express alternative patterns (*alternation*)
+4. Express a repeating pattern (*repetition*)
+5. Recognize the grammar rule to start with
+
+Our convention is put tokens in (double) quotes and start with the first rule. Alternatives are put on separate lines: For example:
+
+```
+List
+    "{" Sequence "}"
+Sequence:
+    Element
+    Element "," Sequence
+Element:
+    "A"
+    "B"
+```
+
+The `List` examples are:
+
+```
+{ A }
+{ B }
+{ A,B }
+{ A,A,A,A,B }
+```
+
+## Turning a grammar into code
+
+We'll use the simplest method to implement grammar: we simply write one function for each grammar rule and use our `Token` to represent tokens.
+
+### Implementing grammar rules
+
+To implement our calculator, we need four functions: one to read tokens plus one for each rule in our grammar:
+
+```c++
+get_token()  // read characters and compose tokens
+             // uses cin
+expression() // deal with + and -
+             // calls term() and get_token()
+term()       // deal with *, /, and %
+             // calls primary() and get_token()
+primary()    // deal with number and parentheses 
+             // calls expression() and get_token()
+```
+
+Note: Each function deals with a specific part of an expression and leaves everything else to other functions; this radically simplifies each function.
+
+Each function should call also call other grammar functions according to the grammar rule it is implementing and `get_token()` where token is required in a rule.
+
+Parsing functions shall return evaluated value, so we simply evaluate expression as we read it from input.
+
+```c++
+// functions to match the grammar rules:
+Token get_token()   // read characters and compose tokens
+double expression() // deal with + and -
+double term()       // deal with *, /, and %
+double primary()    // deal with number and parentheses 
+```
+
+### Expressions
+
+Grammar is as follows:
+
+```
+Expression:
+    Term
+    Expression "+" Term
+    Expression "-" Term
+```
+
+Since we new to this, we'll have a couple of false starts.
+
+Note that reading code is a useful skill to cultivate.
+
+#### Expressions: first try
+
+As written in rule we try first calling `expression()`, then looking for `+`/`-` and then `term()`:
+
+```c++
+double expression()
+{
+    double left = expression(); // read and evaluate an Expression
+    Token t = get_token();      // get next token
+    switch (t.kind) {
+    case '+':
+        return left + term();   // read and evaluate a Term,
+                                // then do an add
+    case '-':
+        return left - term();   // read and evaluate a Term,
+                                // then do a subtraction
+    default:
+        return left;            // return the value of the Expression
+    }
+}
+```
+
+It is almost a trivial transcription of the grammar.
+
+Unfortunately, that doesn't really make sense:
+
+- Our program reads left to right and can't peek ahead to see of a `+` is coming. So we don't know where the expression ends.
+- This program is an example of an *infinite recursion*, it'll call `expression() "forever".
+
+The term *recursion* is used to describe what happens when a function calls itself.
