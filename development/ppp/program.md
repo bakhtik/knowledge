@@ -427,3 +427,332 @@ Unfortunately, that doesn't really make sense:
 - This program is an example of an *infinite recursion*, it'll call `expression() "forever".
 
 The term *recursion* is used to describe what happens when a function calls itself.
+
+#### Expressions: second try
+
+Every `Term` is an `Expression`, but not every `Expression` is a `Term`. We could start looking for a `Term` and look for a fuul `Expression` only if we found a + or a -. For example:
+
+```c++
+double expression()
+{
+    double left = term();           // read and evaluate a Term
+    Token t = get_token();          // get next token
+    switch (t.kind) {
+    case '+':
+        return left + expression(); // read and evaluate an Expression,
+                                    // then do an add
+    case '-':
+        return left - expression(); // read and evaluate an Expression,
+                                    // then do a subtraction
+    default:
+        return left;                // return the value of the Term
+    }
+}
+```
+
+This implementation is violates conventional evaluation of the expression: e.g., it evaluates **1-2-3** as **1-(2-3)** instead of **(1-2)-3**.
+
+This really implements a slightly different grammar:
+
+```
+Expression:
+    Term
+    Term "+" Expression
+    Term "-" Expression
+```
+
+Note that analyzing our errors is often also the best way to find a correct solution.
+
+#### Expressions: third time lucky
+
+We have to look for a `Term`, see if it is followed by a + or a -, and keep doing that until there are no more plusses or minuses. For example:
+
+```c++
+double expression()
+{
+    double left = term();
+    Token t = get_token();
+    while (t.kind=='+' || t.kind=='-') {  // look fo a + or a -
+        if (t.kind == '+')
+            left += term();     // evaluate Term and add
+        else
+            left -= term();     // evaluate Term and subtract
+        t = get_token();
+    }
+    return left;    // if no more + or -; return the answer
+}
+```
+
+This is a bit messier:
+
+- we had to use loop to looking for a + or a -
+- we a bit repetitive: we test twice and twice call `get_token()`
+
+Lets get rid of test duplication:
+
+```c++
+double expression() {
+    double left = term();       // read and evaluate a Term
+    Token t = get_token();      // get next token
+    while (true) {
+        switch (t.kind) {
+        case '+':
+            left += term();
+            t = get_token();
+            break;
+        case '-':
+            left -= term();
+            t = get_token();
+            break;
+        default:
+            return left;        // no more + or -; return the answer
+        }
+    }
+}
+```
+
+We translated the `Expression` in the grammar rules for `Expression` into a loop for a `Term` followed by a + or a -.
+
+### Terms
+
+The grammar rule for the `Term` is very similar to the `Expression` rule:
+
+```
+Term:
+    Primary
+    Term "*" Primary
+    Term "/" Primary
+    Term "%" Primary
+```
+
+Consequently, the code should be very similar also:
+
+```c++
+double term() {
+    double left = primary();
+    Token t = get_token();
+    while (true) {
+        switch (t.kind) {
+        case '*':
+            left *= primary();
+            t = get_token();
+            break;
+        case '/':
+            left /= primary();
+            t = get_token();
+            break;
+        case '%':
+            left %= primary();
+            t = get_token();
+            break;
+        default:
+            return left;
+        }
+    }
+}
+```
+
+Unfortunately, this doesn't compile: the reminder operation(%) is not defined for floating-point numbers. Let's leave % out of our calculator  for a while. This an example of the "support float-point numbers" *feature creep*, that causes troubles.
+
+Let's update the implementation:
+
+- remove '%' operation
+- avoid division by zero error
+
+```c++
+double term() {
+    double left = primary();
+    Token t = get_token();
+    while (true) {
+        switch (t.kind) {
+        case '*':
+            left *= primary();
+            t = get_token();
+            break;
+        case '/':
+        { double d = primary();
+            if (d == 0) error("divide by zero");
+            left /= d;
+            t = get_token();
+            break;
+        }
+        default:
+            return left;
+        }
+    }
+}
+```
+
+Note that if you want to define and initialize variables within a `switch`-statement, you must place them inside a block.
+
+### Primary expressions
+
+The grammar rule for primary expression is also simple:
+
+```
+Primary:
+    Number
+    "(" Expression ")"
+```
+
+The code that implements it is a bit messy because there are more opportunities for syntax errors:
+
+```c++
+double primary()
+{
+    Token t = get_token();
+    switch (t.kind) {
+    case '(':   // handle '(' expression ')'
+        {
+            double d = expression();
+            t = get_token();
+            if (t.kind != ')') error("')' expected");
+            return d;
+        }
+    case '8':           // we use '8' to represent a number
+        return t.value; // return the number's value
+    default:
+        error("primary expected");
+    }
+}
+```
+
+## Trying the first version
+
+To run calculator we need:
+
+- implement `get_token()`
+- provide `main()`: call `expression()` and print out its result
+
+```c++
+int main()
+try {
+    while (cin)
+        cout << "=" << expression() << '\n';
+}
+catch (exception& e) {
+    cerr << "error: " << e.what() << '\n';
+    return 1;
+}
+catch (...) {
+    cerr << "exception \n";
+    return 2;
+}
+```
+
+```console
+1 2 3 4+5 6+7 8+9 10 11 12
+= 1
+= 4
+= 6
+= 8
+= 10
+```
+
+Look carefully on the program output: it is outputting every third token! The program "eats" some of our inputs without evaluating it.
+
+Consider `expression()`. When the `Token` returned by `get_token()` in not a + or a - we just return. We don't use that token and don't store it anywhere for any other function to use later.
+
+Let us modify `expression()` and `term()` so that they do not "eat" tokens. 
+
+The "obvious" solution is to put the token back into the input stream so that it can be read again by some other function.
+
+Assume that we have a stream of tokens -  a `Token_stream` called `ts`:
+
+- `ts.get()` member function returns the next token
+- `ts.putback(t) puts a token `t` back into the stream
+
+```c++
+double expression() {
+    double left = term();       // read and evaluate a Term
+    Token t = ts.get();         // get next Token from the Token stream
+
+    while (true) {
+        switch (t.kind) {
+        case '+':
+            left += term();
+            t = ts.get();
+            break;
+        case '-':
+            left -= term();
+            t = ts.get();
+            break;
+        default:
+            ts.putback(t);      // put t back into the token stream
+            return left;        // no more + or -; return the answer
+        }
+    }
+}
+```
+
+```c++
+double term() {
+    double left = primary();
+    Token t = ts.get();
+
+    while (true) {
+        switch (t.kind) {
+        case '*':
+            left *= primary();
+            t = ts.get()
+            break;
+        case '/':
+        { double d = primary();
+            if (d == 0) error("divide by zero");
+            left /= d;
+            t = ts.get()
+            break;
+        }
+        default:
+            ts.putback(t);
+            return left;
+        }
+    }
+}
+```
+
+In `primary()` function we just neet to change `get_token()` to `ts.get()`.
+
+## Trying the second version
+
+```console
+2 3 4 2+3 2*3
+= 2
+= 3
+= 4
+= 5
+```
+
+The last answer is missing. We still have a token-look-ahead problem. However, this time it's due to it doesn't get any output for an expression until we enter the following expression.
+
+We can fix it by using:
+
+- semicolon for triggering output
+- `q` for quit
+
+Let's change 
+
+```c++
+while (cin) cout << "=" << expression() << '\n';
+```
+
+to 
+
+```c++
+double val = 0;
+while (cin) {
+    Token t = ts.get();
+
+    if (t.kind == 'q') break;   // 'q' for "quit"
+    if (t.kind == ';')          // ';' for "print now"
+        cout << "=" << val << '\n';
+    else
+        ts.putback(t);
+    val = expression();
+}
+```
+
+At this point we have a good intial version of the calculator.
+
+## Token streams
+
