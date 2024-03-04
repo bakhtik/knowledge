@@ -756,3 +756,162 @@ At this point we have a good intial version of the calculator.
 
 ## Token streams
 
+Let us show implementation of `Token_stream`. After all, nothing - nothing at all - works until we get correct input.
+
+Input for our calculator is a sequence of tokens. We need to:
+
+- read characters from standard input, `cin`
+- present the program with the next token
+- be able to put it back for later use
+
+This is fundamental, because we can not be sure if we read a complete token before reading a character more.
+
+Everything we use in C++ has a type, so we start by defining the type `Token_stream`.
+
+A C++ user-defined type often consist of two parts: the public interface (labeld `public:`) and the implementation details (labeled `private:`). The idea is to separate what a user of a type needs for convenient use from the details that we need in order to implement the type, but that we'd rather not have users mess with:
+
+```c++
+class Token_stream {
+public:
+    // user interface
+private:
+    // impementation details
+    // (not directly accessible to users of Token_stream)
+};
+```
+
+The publice interface should contain (only) what a user needs, which is typically a set of functions. The private implementation contains what is necessary to implement those public functions, typically data and functions.
+
+The `Token_stream` is to make `Token`s out of characters that it reads from input, so we need to be able to make a `Token_stream` and to define it to read from `cin`.
+
+```c++
+class Token_stream {
+public:
+    Token_stream();	    // make a Token_stream that reads from cin
+    Token get();	    // get a Token
+    void putback(Token t);  // put a Token back
+private:
+    // implementation details
+};
+
+Note that consistency in naming is a useful property of a system: It helps people remember and helps people avoid errors.
+
+### Implementing Token_stream
+
+We need space of any token we put back into the `Token_stream`. Let's say we can put back at most one token at a time. That way, we just need space for one `Token` and an indicator of whether that space is full or empty.
+
+```c++
+class Token_stream {
+public:
+    Token get();            // get a Token
+    void putback(Token t);  // put a Token back
+private:
+    bool full {false};      // is there a Token in the buffer? It should start empty
+    Token buffer;           // here is where we keep a Token put back using putback()
+};
+```
+
+Now we can define ("write") the two member functions.
+
+The `putback()` member function puts its argument back into the `Token_stream`'s buffer:
+
+```c++
+void Token_stream::putback(Token t)
+{
+    buffer = t;    // copy t to buffer
+    full = true;   // buffer is now full
+}
+```
+
+When we define a memeber of a class outside the class definition itself, we have to mention which class we mean the member to be a member of. We use the notation
+
+```c++
+class_name::member_name
+```
+
+The class definition (primarily) states what the class can do. So for the sake of clarity we prefer to define it implemetation details outside of the class. Our ideal is to have every logical entity in a program to fit on a screen.
+
+To protect from using `putback()` twice without reading in between, we can add the test:
+
+```c++
+void Token_stream::putback(Token t)
+{
+    if (full) error ("putback()into a full buffer"); // checks pre-condition "There is no Token in the buffer"
+    buffer = t;    // copy t to buffer
+    full = true;   // buffer is now full
+}
+```
+
+### Reading tokens
+
+All the real work is done by `get()`. If there isn't alreadty a `Token` in `Token_stream::buffer`, `get()` must read characters from `cin` and compose them into `Tokens`s:
+
+```c++
+Token Token_stream::get()
+{
+    if (full) {         // do we already have a Token ready?
+        full = false;   // remove Token from buffer
+        return buffer;
+    }
+
+    char ch;
+    cin >> ch;          // note that >> skips whitespaces
+
+    switch (ch) {
+    case ';':           // for "print
+    case 'q':           // for "quit"
+    case '(': case ')': case '+': case '-': case '*': case '/':
+        return Token{ch};   // let each character represent itself
+    case '.':
+    case '0': case '1': case '2': case '3': case '4':
+    case '5': case '6': case '7': case '8': case '9':
+    {
+        cin.putback(ch);        // put digit back into the input stream
+        double val;
+        cin >> val;             // read a floating-point number
+        return Token{'8',val};  // let '8' represent "a number" 
+    }
+    default:
+        error("Bad token");
+    }
+}
+```
+
+### Reading numbers
+
+Input sreams know what C++ literals look like and how to turn them into valuse of type `double`. All we have to do is to figure out how to tell `cin` to do that for us inside `get()`.
+
+- a numeric literal must start with a digit or . (the decimal point).
+- we put the initial characher back into `cin`
+- we let `cin` read the whole number
+
+Please note how we again and again avoid doing complicated work and instead find simpler solutions - often relying on library facilities. That's the essence of programming: the continuing search for simplicity.
+
+## Program structure
+
+```c++
+#include "std_lib_facilities.h"
+
+class Token { /* ... */ }
+class Token_stream { /* ... */ }
+
+void Token_stream::putback(Token t) { /* ... */ }
+Token Token_stream::get() { /* ... */ }
+
+Token_stream ts;    // provides get() and putback()
+double expression() // declaration so that primary() can call expression()
+
+double primary() { /* ... */ }    // deal with numbers and parentheses
+double term() { /* ... */ }       // deal with * and /
+double expression() { /* ... */ } // deal with + and -
+
+double main() { /* ... */ }       // main loop and deal with errors
+```
+
+![program structure](img/calc_structure.png)
+
+Note that everyone calls to `error()`.
+
+The order of the declaration is important. You cannot use a name before it has been declared.
+
+We used "forward declare" of `expression()` so that 'primary()` fucntion can use it.
