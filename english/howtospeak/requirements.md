@@ -2,6 +2,10 @@
 
 **Vocabulary - Parts of Speech - Requisites**
 
+- [The English language in a nutshell](#the-english-language-in-a-nutshell)
+- [Definitions](#definitions)
+- [Three essentials](#three-essentials)
+
 For all purposes of ordinary communication only about 2,000 words are required.
 
 To use a big word or a foreign word when a small one and a familiar one will answer the same purpose, is a sign of ignorance. Great scholars and writers and polite speakers use simple words. 
@@ -91,3 +95,9 @@ The three essentials of the English language are:
 - *Purity*
 - *Perspicuity*
 - *Precision*
+
+By *Purity* is signified the use of good English. It precludes the use of all slang words, vulgar phrases, obsolete terms, foreign idioms, ambiguous expressions or any ungrammatical language whatsoever. Neither does it sanction the use of any newly coined word until such word is adopted by the best writers and speakers.
+
+*Perspicuity* demands the clearest expression of thought conveyed in unequivocal (very strong and clear) language, so that there may be no misunderstanding whatever of the thought or idea the speaker of writer wishes to convey. All ambiguous words, words of double meaning are strictly forbidden. Perspicuity requires a style at once clear and comprehensive and entirely free from pomp (impressive things) and pedantry.
+
+*Precision* requires concise and exact expression, free from redundancy and tautology, a style of terse (direct) and clear and simple enough to enable the hearer or reader to comprehend immediately the meaning of the speaker or writer. It forbids, on one hand, all long and involved sentences, and, on the other, those that too short and abrupt.
