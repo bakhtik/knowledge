@@ -8,4 +8,6 @@
 - [Advertising](ads/index.md)
 - [Development](development/index.md)
 - [Health](health/index.md)
+- [English](english/index.md)
 - [Miscellaneous](misc.md)
+
