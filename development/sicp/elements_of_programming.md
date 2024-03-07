@@ -333,6 +333,7 @@ The problem with `sqrt` program is that the only procedure that is important to 
 
 ```lisp
 (define (sqrt x)
+
   (define (good-enough? guess x)
     (< (abs (- (square guess) x)) 0.001))
 
@@ -351,3 +352,28 @@ The problem with `sqrt` program is that the only procedure that is important to 
 Such nesting of definitions, called *block structure*, is basically the right solution to the simplest name-packaging problem.
 
 But in addition to internalizing the definitions of the auxiliary procedures, we can simplify them.
+
+Internal procedures are in scope of the variable `x` bound in the definition of `sqrt`. Thus, it is not necessary to pass `x` to each of these procedures. Instead, we allow `x` to be a free variable in the internal definitions, as shown below. This discipline is called *lexical scoping*.
+
+Lexical scoping dictates that free variables in a procedure are taken to refer to bindings made by enclosing procedure definitions; that is, they are looked up in the environment in which the procedure was defined.
+
+```lisp
+(define (sqrt x)
+
+  (define (good-enough? guess)
+    (< (abs (- (square guess) x)) 0.001))
+
+  (define (improve guess)
+    (average guess (/ x guess)))
+
+  (define (sqrt-iter guess)
+    (if (good-enough? guess)
+      guess
+      (sqrt-iter (improve guess))))
+
+  (sqrt-iter 1.0))
+```
+
+We will use block structure extensively to help us break up large programs into tractable (easy to deal with) pieces.
+
+Embedded definitions must come first in a procedure body. The management is not responsible for the consequence of running programs that intertwine (twist together) definition and use.

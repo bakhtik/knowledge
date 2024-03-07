@@ -2,6 +2,7 @@
 
 - [Programming in Lisp](#programming-in-lisp)
 - [The elements of programming](elements_of_programming.md)
+- [Procedures and the Processes They Generate](procedures.md)
 
 > The act of mind dealing with simple ideas
 > 1. **Complex idea:** combining several simple ideas into one compound one.
