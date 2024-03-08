@@ -1,5 +1,13 @@
 # Exploring the System - Linux Shell
 
+- [More fun with ls](#more-fun-with-ls)
+- [Options and arguments](#options-and-arguments)
+- [A longer look at long format](#a-longer-look-at-long-format)
+- [Determining a file's type with `file`](#determining-a-files-type-with-file)
+- [Viewing file contents with less](#viewing-file-contents-with-less)
+- [A guided tour](#a-guided-tour)
+- [Symbolic Links](#symbolic-links)
+
 ## More fun with ls
 
 With `ls` command we can see directory contents and determine a variety of important file and directory attributes.
@@ -162,3 +170,44 @@ Regular users are largely prohibited from messing things up.
 | */* | The root directory, where everything begins |
 | */bin* | Contains binaries (programs) that must be present for the system to boot and run |
 | */boot* | Contains the Linux kernel, initial RAM disk image (for drivers needed at boot time), and the boot loader. <br><br> Interesting files:<br> - */boot/grub/grub.conf* or *menu.lst*, which are used to configure the boot loader<br> - */boot/vmlinuz*, the Linux kernel
+| */dev* | Contains *device nodes*. "Everything is a file" also applies to devices. Here is where the kernel maintains a list of all the devices it understands. |
+| */etc* | Contains all of the system-wide configuration files. It also contains a set of shell scripts that start each of the system services at boot time.<br><br> Interesting files:<br> - */etc/crontab/*, a file that denotes when automated jobs will run<br> - */etc/fstab*, a table of storage devices and their associated mount points<br> - */etc/passwd*, a list of the user accounts |
+| */home* | Each user is given a directory in /home. Ordinary users write files only in their home directories. |
+| */lib* | Contains shared library files used by the core system programs. |
+| */lost+found* | It is used in the case of a partial recovery from a filesystem corruption event. In normal circumstances it is empty. |
+| */media* | Will contain the mount points for removable media, such as USB drives that are mounted automatically at insertion. |
+| */mnt* | On older Linux systems, the folder contains mount points for removable devices that have been mounted manually. |
+| */opt* | Is used to install "optional" software, mainly commercial software products. |
+| */proc* | It is a virtual filesystem maintained by the Linux kernel. The "files" it contains are peepholes into the kernel itself. |
+| */root* | The home directory for the root account |
+| */sbin* | Contains "system" binaries. These are programs that perform vital system tasks. |
+| */tmp* | It is intended for storage temporary files created by various programs. |
+| */usr* | The directory tree if likely the largest one on a Linux system. It contains all the programs and support files used by regular user. |
+| */usr/bin* | Contains the executable programs installed by your Linux distribution. |
+| */usr/lib* | The shared libraries for the programs in */usr/bin*. |
+| */usr/local* | The */usr/local* tree is where programs that are not included with your distribution but are intended for system-wide use are installed. Programs compiled from source code are normally installed in */usr/local/bin*. |
+| */usr/sbin* | Contains more system administration programs. |
+| */usr/share* | Contains all the shared data used by programs in */usr/bin*, like default configuration files, icons, backgrounds, sound files, etc. |
+| */usr/share/doc* | Contains documentation files organized by installed package. |
+| */var* | The */var* directory tree is where data that is likely to change is stored. Various databases, spool files, user mail, etc. are located here. |
+| */var/log* | Contains *log files*, records of various system activity. These are very important and should be monitored from time to time. |
+
+## Symbolic Links
+
+Notice the first letter `l` and the entry seems to have two filenames in the following example:
+
+```console
+lrwxrwxrwx   1 root root      20 Jan 12  2022 libzlcore.so.0.13 -> libzlcore.so.0.12.10
+```
+
+This is a s[ecial kind of a file called a *symbolic link* (*soft link* or *symlink*). It is possible to have a file referenced by multiple names.
+
+This allows us to
+
+- use common name without version for programs to reference to
+- upgrade underline file that include with version number in its name
+- recover to previous version of the file simply rewriting the symbolic link
+
+### Hard links
+
+There is a second type of link called a *hard link*. Hard links also allow files to have multiple names, but they do it in a different way.
