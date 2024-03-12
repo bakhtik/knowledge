@@ -1,4 +1,4 @@
-# The Principles of Economics
+# Ten Principles of Economics
 
 The word *economy* comes form the Greek word *oikonomos*, which means "one who manages a household".
 
@@ -70,13 +70,38 @@ When policymakers fail to consider how their policies affect incentives, they of
 
 When analyzing any policy, we must consider not only the direct effects but also the less obvious indirect effects that work through incentives. If the policy changes incentives, it will cause people to alter their behavior.
 
-## How people react
+## How people Interact
 
 These principles concern how people interact with one another
 
 ### Principle 5: Trade can make everyone better off
 
+It is easy to be misled when thinking about competition among countries. Trade between two counties can make each country better off.
+
+In example each family in an economy competes with all other families to get better job or buy the best goods at the lowest prices. Being in isolation requires growing own food, make own clothes, etc. Trade allows each person to specialize in the activities she does best.
+
+Trade allows countries to specialize in what they do best and to enjoy a greater variety of goods and services at lower cost.
+
 ### Principle 6: Markets are usually a good way to organize economic activity
+
+In centrally planned economies central planners decided what goods and services were produced, how much was produced, and who produced and consumed these goods and services.
+
+In contrast, **market economy** is an economy that allocated resources through the decentralized decisions of many firms and households as they interact in markets for goods and services. There firms and households interact in the marketplace, where prices and self-interest guide their decisions.
+
+Despite decentralized decision making and self-interest decision makers, market economies promote overall economic well-being.
+
+Adam Smith said that households and firms interacting in markets act as if they are guided by  an "invisible hand" that leads them to desirable market outcomes. Smith said that participants in the economy are motivated by self-interest and that the "invisible hand" of the marketplace guides this self-interest into promoting general economic well-being.
+
+Prices are the instrument with which the invisible hand directs economics activity. Prices influence buyers decisions how much to demand, and sellers - how much to supply. As a result, market prices reflect:
+
+- the value of a good to society
+- the cost to society of making the good
+
+When a government prevent prices from adjusting naturally to supply and demand, it impedes the invisible hand's ability to coordinate the decisions of the households and firms that make up an economy. Thus why taxes adversely affect allocation of resources: they distort prices and thus the decisions of households and firms.
+
+Vigorous competition among producers makes a market work well for consumers.
+
+For example, Uber's surge pricing increases consumer well-being. Surge pricing makes consumers pay more at times, but because Uber drivers respond to incentives, it also increases the quantity of car services supplied when they are most needed.
 
 ### Principle 7: Governments can sometimes improve market outcomes
 
