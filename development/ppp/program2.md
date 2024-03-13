@@ -27,3 +27,39 @@ For some tasks, the initial requirements cannot be changed, and that's usually l
 > 2+3;
 = 5
 ```
+
+We can get it by a minor change to the main loop of `main()`:
+
+```c++
+double val = 0;
+while (cin) {
+    cout << "> ";               // print prompt
+    Token t = ts.get();
+
+    if (t.kind == 'q') break;
+    if (t.kind == ';')
+	cout << "=" << val << '\n'; // print result
+    else
+	ts.putback(t);
+    val = expression();
+```
+
+The result is
+
+```console
+> 2+3; 5*7; 2+9;
+= 5
+> = 35
+> = 11
+
+```
+
+We have to mess with `Token_stream` to make this improvement. For now we decide that what we have is good enough.
+
+It is unwise to make major structural changes to gain a minor advantage.
+
+## Error handling
+
+The first thing to do once you have a program that "basically works" is to try to break it; that is, we try to feed it input in the hope of getting it to misbehave. The right attitude when testing is "I'll break it!".
+
+Technically, this is known as *testing*. You shall approach testing seriously. You try to create test cases systematically, and just in case your strategy for selecting tests isn't complete, you do some "unreasonable" tests.
