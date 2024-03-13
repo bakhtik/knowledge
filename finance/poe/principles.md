@@ -1,5 +1,11 @@
 # Ten Principles of Economics
 
+- [How people make decisions](#how-people-make-decisions)
+- [How people Interact](#how-people-interact)
+- [How the Economy as a whole works](#how-the-economy-as-a-whole-works)
+
+![principles](img/principles.png)
+
 The word *economy* comes form the Greek word *oikonomos*, which means "one who manages a household".
 
 Like a household, a society faces many decisions:
@@ -118,7 +124,7 @@ The invisible hand usually allocates resources efficiently, but not always. **Ma
 
 Some of the possible causes of market failure are:
 
-- **externality**: the impact of one person's actions on the well-being of a bystander. The classic is pollution - market on its own may fail to take into account harm of the factory pollution to citizen's health.
+- **externality**: the impact of one person's actions on the well-being of a bystander. The classic example is pollution - market on its own may fail to take into account harm of the factory pollution to citizen's health.
 
 - **market power**: the ability of a single economic actor (or small group of actors) to have a substantial influence on market prices. For example, owner of the only water well in town is not subject to the rigorous competition and, thus, can charge a higher price.
 
