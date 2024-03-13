@@ -101,9 +101,32 @@ When a government prevent prices from adjusting naturally to supply and demand, 
 
 Vigorous competition among producers makes a market work well for consumers.
 
-For example, Uber's surge pricing increases consumer well-being. Surge pricing makes consumers pay more at times, but because Uber drivers respond to incentives, it also increases the quantity of car services supplied when they are most needed.
+For example, Uber's surge pricing increases consumer well-being. Surge pricing makes consumers pay more at times, but because Uber drivers respond to incentives, it also increases the quantity of car services supplied when they are most needed. Surge pricing also helps allocate the service to those consumers who value them most highly and reduces the costs of searching and waiting for a car.
 
 ### Principle 7: Governments can sometimes improve market outcomes
+
+One reason we need government is that the invisible hand can work its magic only if the government enforces the rules and maintains the institutions that are key to a market economy. Most important, market economies need institutions to enforce **property rights** so individuals can own and control scarce resources.
+
+We all rely on government-provided police and courts to enforce our rights over the things we produce - and the invisible hand counts on our ability to enforce those rights.
+
+Government intervenes in the economy and changes the allocation of resources as the invisible hand powerful, but not omnipotent:
+
+- to promote efficiency (to enlarge the economic pie)
+- to promote equality (to change how the pie is divided)
+
+The invisible hand usually allocates resources efficiently, but not always. **Market failure** is a situation in which a market left on its own fails to allocate resources efficiently.
+
+Some of the possible causes of market failure are:
+
+- **externality**: the impact of one person's actions on the well-being of a bystander. The classic is pollution - market on its own may fail to take into account harm of the factory pollution to citizen's health.
+
+- **market power**: the ability of a single economic actor (or small group of actors) to have a substantial influence on market prices. For example, owner of the only water well in town is not subject to the rigorous competition and, thus, can charge a higher price.
+
+Well-designed public policy can enhance economic efficiency.
+
+The invisible hand can leave sizable disparities in economic well-being. A market economy rewards people according to their ability to produce things that other people are willing to pay for. In practice, many public policies, such as the income tax and the welfare system, aim to achieve a more equal distribution of economic well-being.
+
+To say that the government *can* improve on market outcomes does not mean that it always *will*. People aren't angels, political processes are imperfect, self-interested or poorly informed leaders, etc.
 
 ## How the Economy as a whole works
 
