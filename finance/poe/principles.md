@@ -140,7 +140,40 @@ The last three principles concern the workings of the economy as a whole.
 
 ### Principle 8: A country's standard of living depends on its ability to produce goods and services
 
+The difference in living standards around the world are staggering. In 2014, average income varied from $55,00 in US to only $6,000 in Nigeria. This large variation in average income is reflected in various measures of quality of life. More income means more high-quality goods and services, better nutrition, better healthcare, and longer life expectancy. And vise versa.
+
+This variation can be explained by difference in countries' **productivity** - that is, the amount of goods and services produced by each unit of labor input. In nations where workers can produce a large quantity of goods and services per hour, most people enjoy a high standard of living. Similarly, the growth rate of a nation's productivity determines the growth rate of its average income.
+
+Productivity is the primary determinant of living standards, and other explanations must be of secondary importance.
+
+When thinking about how any policy will affect living standards, the key question is how it will affect our ability to produce goods and services. For example, by ensuring that workers are well educated and have appropriate tools and access to the best technologies.
+
 ### Principle 9: Prices rise when the government prints too much money
+
+**Inflation** is an increase in the overall level of prices in the economy.
+
+Because high inflation imposes various costs on society, keeping inflation at a low level is a goal of economic policymakers around the world.
+
+In almost all cases of large or persistent inflation, the culprit is growth in the quantity of money. When a government creates large quantities of the nation's money, the value of the money falls.
 
 ### Principle 10: Society faces a short-run trade-off between inflation and unemployment
 
+The short-run effects of monetary injections are as follows:
+
+- Increasing the amount of money in the economy stimulates the overall level of spending and thus the demand for goods and services.
+- Higher demand may over time cause firms to raise their prices, but it the meantime, it also encourages them to hire more workers and produce a larger quantity of goods and services.
+- More hiring means lower unemployment.
+
+Society faces a short-run trade-off between inflation and unemployment. This simply means that, over a period of a year or two, many economic policies push inflation and unemployment in opposite directions. This short-run trade-off plays a key role in the analysis of the **business cycle** - the irregular and largely unpredictable fluctuations in economic activity, such as employment and production.
+
+Policymakers can influence the overall demand for goods and services by changing:
+
+- the amount that government spends
+- the amount it taxes
+- the amount of money it prints 
+
+Changes in demand in turn influence the combination of inflation and unemployment that the economy experiences in the short run.
+
+## Conclusion
+
+Keep the grouping of the principles in mind: Even the most sophisticated economic analysis if founded on the ten principles.
