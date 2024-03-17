@@ -2,7 +2,7 @@
 
 > All models are wrong, but some are useful. -George Box, 1978
 
-1. Choosing Your WoW!
+1. [Choosing Your WoW!](wow.md)
 2. Being Disciplined
 3. Disciplined Agile Delivery (DAD)
 4. Roles, Rights, and Responsibilities
