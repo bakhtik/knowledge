@@ -12,7 +12,7 @@
 
 When you use Scrum, you form a team that will **work together** to **quickly develop** and **test** a deliverable. The work is completed in **short cycles**, and the team **meets daily** to discuss current tasks and clear up anything that's blocking their progress.
 
-**Scrum Guide** is a main source of truth for Scrum teams. Available at (https://scrumguides.org).
+[**Scrum Guide**](scrumguide.md) is a main source of truth for Scrum teams. Available at [scrumguides.org](https://scrumguides.org).
 
 Agile is the foundational philosophy and mindset, while Scrum is a framework that materializes or brings that philosophy to life.
 
@@ -190,7 +190,7 @@ Development Team's traits:
 - **Supportive.** They continuously operate as a team, rather than individuals.
 - **Customer-oriented.** The best products emerge from focusing on the user.
 
-## Scrum main events and artifacts
+## Scrum main events, artifacts, and definitions
 
 ### Product Backlog
 
@@ -206,4 +206,8 @@ This Sprint can be between one and four weeks long, but most Sprints are around 
 
 ### Daily Scrum
 
-A meeting of **15** or fewer minutes every day of the Sprint to inspect team's progress towards their goals.
+A meeting of **15 minutes** or fewer every day of the Sprint to inspect team's progress towards their goals.
+
+### Definition of Done
+
+An agreed upon set of items that must be completed before a project or user story can be considered complete.

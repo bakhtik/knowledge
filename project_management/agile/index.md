@@ -1,5 +1,6 @@
 # Agile
 
 - [Agile History](agile.md)
-- [Manifesto](manifesto.md)
+- [Agile Manifesto](manifesto.md)
+- [Scrum Guide](scrumguide.md) 
 - [Scrum](scrum.md)
