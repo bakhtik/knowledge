@@ -39,9 +39,21 @@ The real goal is to effectively achieve *desired organizational outcomes*, not t
 
 ## Accept That There's No Easy Answer
 
+What we do is challenging:
+
+- You and your team work within the context of organization
+- Technologies you are using is constantly evolving
+- You're working with different people and organizations what act differently
+
+To be effective you should embrace (accept with pleasure) this complexity and not downplay or ignore important aspects of your WoW.
+
 ## We Can Benefit From the Learning of Others
 
+Development teams utilize proven frameworks and libraries to improve productivity and quality. It should be the same thing with process. You can develop your WoW by combining existing practices and strategies and then modifying them to address the situation at hand.
+
 ## DA Knowledge Makes You a Far More Valuable Team Member
+
+Understanding a larger library of proven strategies means that teams will make better decisions and "fail fast" less, rather "learn and succeed earlier." Every team member is expected to bring a tool kit of ideas to customize the team's process as part of self-organization.
 
 ## The Disciplined Agile (DA) Tool Kit Provides Accessible Guidance
 
@@ -55,25 +67,38 @@ Tool kit applying:
 
 ## Contextualized Process Reference
 
-1. **Life cycles.**
-2. **Process goals.**
-3. **Practices/strategies.**
+Three level of scaffolding to quickly reference available strategies:
+
+1. **Life cycles.** DAD supports six different life cycles to provide flexibility with choosing an approach:
+  - Agile
+  - Continuous Delivery: Agile
+  - Exploratory
+  - Lean
+  - Continuous Delivery: Lean
+  - Program 
+2. **Process goals.** DAD is described as a collection of 24 process goals (outcomes). Each goal is described as a collection of decision points, issues to be addressed and how to address them. 
+3. **Practices/strategies.** Potential practices/strategies for addressing a decision point are presented as lists. Goal diagrams are guides to choose the best strategies with indication of relative effectiveness of options. You don't need to have deep knowledge of each option as they overviewed in the Disciplined Agile Browser.
 
 ## Improvement Occurs at Many Levels
+
+Your organization is a complex adaptive system (CAS), with interaction of evolving teams/groups.
 
 Implications for choosing your WoW:
 
 1. **Every team will have a different WoW.**
 2. **We will evolve our WoW to reflect learning whenever we work with other teams.**
-3. **We can purposefully choose to learn from other teams.**
-4. **We can benefit from organizational transformation/improvement efforts.**
+3. **We can purposefully choose to learn from other teams.** Strategies to share learning across teams:
+  - Practitioner presentations
+  - Communities of practice (CoPs)/guilds
+  - Coaching, etc.
+4. **We can benefit from organizational transformation/improvement efforts.** Improvement can, and should, happen at the team level. But it also needs to occur outside of DAD teams and at the organizational level to collaborate effectively.
 
 DA tool kit is organized into four layers:
 
-1. **Foundation.**
-2. **Disciplined DevOps.**
-3. **Value Stream.**
-4. **Disciplined Agile Enterprise(DAE).**
+1. **Foundation.** Conceptual underpinnings (basis) of the DA tool kit.
+2. **Disciplined DevOps.** DevOps is the streamlining of solution development and operations.
+3. **Value Stream.** Based on FLEX - the glue that ties organization's strategies, showing what an effective value stream look like.
+4. **Disciplined Agile Enterprise(DAE).** The layer focuses on the rest of the enterprise activities.
 
 ## Guided Continuous Improvement (GCI)
 
