@@ -133,6 +133,13 @@ As a collective, Scrum Team exhibits specific skills:
 - **self-organizing** 
 - accomplishments are of the **entire team**
 
+Necessary traits for each role:
+
+- shall be interested in constant collaboration and improvement
+- shall value feedback
+- shall bring energy and fun
+- shall admit and learn from mistakes
+
 ### Scrum Master
 
 A Scrum Master promotes and supports the Scrum process by helping understand and implement Scrum. This includes its practices, rules, and values.
