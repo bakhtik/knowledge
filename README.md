@@ -2,6 +2,7 @@
 
 > You pretty know what to do. No excuses.
 
+![traits](traits.png)
 - [Psychology](psychology/index.md)
 - [Project Management](project_management/index.md)
 - [Finance](finance/index.md)
