@@ -4,3 +4,4 @@
 - [Agile Manifesto](manifesto.md)
 - [Scrum Guide](scrumguide.md) 
 - [Scrum](scrum.md)
+- [Scrum Master](scrummaster.md)
