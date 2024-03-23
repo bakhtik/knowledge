@@ -103,3 +103,59 @@ The implementation of Scheme does not share this defect. It will execute an iter
 
 ## Tree Recursion
 
+Another common pattern of computation is called *tree recursion.* As an example, consider computing the sequence of Fibonacci numbers, in which each number is the sum of the preceding two.
+
+The Fibonacci numbers can be defined by the rule
+
+![fibonacci](fibonacci.png)
+
+We can translate this definition into a recursive procedure:
+
+```lisp
+(define (fib n)
+  (cond ((= n 0) 0)
+	((= n 1) 1)
+	(else (+ (fib (- n 1)) 
+		 (fib (- n 2))))))
+```
+
+The tree-recursive process generated in computing (fib 5):
+
+![tree recursive](treerecursive.png)
+
+Notice that the branches split into two at each level (except at the bottom); this reflects the fact that the `fib` procedure calls itself twice each time it is invoked.
+
+This process is terrible due to redundant computation.
+
+The process uses a number of steps that grows exponentially with the input. But the space required grows only linearly with the input, because we need keep track only of which nodes are above us in the tree at any point in the computation. In general, the number of steps required by a tree-recursive process will be proportional to the number of nodes in the tree, while the space required will be proportional to the maximum depth of the tree.
+
+We can also formulate an iterative process for computing the Fibonacci numbers. The idea is to use a pair of integers `a` and `b`, initialized to `Fib(1) = 1` and `Fib(0) = 0`, and to repeatedly apply the simultaneous transformations:
+
+```
+a <- a + b
+b <- a
+```
+
+After applying this transformation `n` times, `a` and `b` will be equal, respectively, to `Fib(n+1)` and `Fib(n)`.
+
+```lisp
+(define (fib n)
+  (fib-iter 1 0 n))
+
+(define (fib-iter a b count)
+  (if (= count 0)
+    b
+    (fib-iter (+ a b) a (- count 1))))
+```
+
+This second method for computing `Fib(n)` is a linear iteration. The number of its step is linear to `n`, but the number of steps of the first version of the procedure is growing as fast as `Fib(n)` itself. The difference is enormous.
+
+When we consider processes that operate on hierarchically structured data rather than numbers, we will find that tree recursion is a natural and powerful tool.
+
+To formulate the iterative algorithm required noticing that the computation could be recast as an iteration with three state variables.
+
+A tree-recursive process may be highly inefficient but often easy to specify and understand.
+
+## Order of Growth
+
+Processes can differ considerably in the rates at which they consume computational resources. One convenient way to describe this difference is to use the notion of *order of growth* to obtain a gross measure of the resources required by the process as inputs become larger.
