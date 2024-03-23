@@ -10,5 +10,6 @@
 - [Development](development/index.md)
 - [Health](health/index.md)
 - [English](english/index.md)
+- [Job](job/index.md)
 - [Miscellaneous](misc.md)
 
