@@ -33,3 +33,17 @@ It is crucial for everyone on the team to understand their role and how they wor
 - **Has fun with each other:** fostering fun, energy, interaction and collaboration.
 - **Don't have any Scrum "meetings".** Consider Scrum events as opportunities for conversations to *plan, align,* and to *reflect.*
 - **Knows their customers.** Real customers are in direct contact with the team.
+- **Can explain the (business) value of non-functional requirements** such as performance, security, and scalability.
+- **Trusts each other.**
+- **Keeps retrospective fun.**
+- **Deliver features during the Sprint.** Team delivers features *continuously.*
+- **Doesn't need a "Sprint 0" before the "real" Sprints start.** They can deliver business value in the first Sprint.
+- **Acts truly cross-functional.** They don't talk about different roles within the team - everyone is doing the stuff that's necessary to achieve the Sprint Goal.
+- **Updates the Scrum board themselves.** Team ensures the Scrum board is always up-to-date. It's an accurate reflection of the reality.
+- **Spends time on innovation.** Team knows it's necessary to keep up with rapidly changing environment and technology. 
+- **Doesn't need a Definition of Done.** Team deeply understands what "done" means for them. The only reason to use it is to make the "done state" transparent for their stakeholders.
+- **Knows how to give feedback.** Team has learned how to give each other feedback honestly and respectfully. They grasp the concept of the "Situation-Behavior-Impact Feedback Tool" and therefore provide clear, actionable feedback.
+- **Manages their team composition.** Whenever specific skill are necessary, they collaborate with other teams to discuss the opportunities of "hiring" specific skills.
+- **Proactive collective ownership.** They rotate developers across different modules of the application and systems to encourage collective ownership.
+- **Fix dependencies with other teams.** Teams are aware of possible dependencies with other teams and manage these by themselves.
+- **Doesn't need story points.** They know how many items they can realize each Sprint.

@@ -1,7 +1,6 @@
 # The Product Owner
 
 - [Characteristics of a great Product Owner](#characteristics-of-a-great-product-owner)
-- [Agile Product Ownership in a Nutshell](#agile-product-ownership-in-a-nutshell)
 
 According to the Scrum Guide, "the Product Owner is responsible for maximizing the value of the product resulting from work of the Scrum Team. How this is done may vary wildly across organizations, Scrum Teams, and individuals."
 
@@ -10,6 +9,14 @@ The Product Owner's duties include:
 - Developing and explicitly communicating the Product Goal.
 - Creating and clearly communicating *Product Backlog* items.
 - Ensuring that the Product Backlog is transparent, visible, and understood.
+
+## Product Owner's Traits:
+
+- Able to confidently provide general directions, requirements, and objectives.
+- Allows team to determine *how* to accomplish the goals.
+- Promotes product Vision and prioritizes the Prodcut Backlog.
+- Orgianized.
+- Strong communication skills.
 
 ## Characteristics of a great Product Owner
 
@@ -46,5 +53,3 @@ The Product Owner's duties include:
   - defects,
   - non-functional requirements, etc.
 - **Takes Backlog Refinement seriously.** Backlog Refinement is the act of adding detail, estimates, and order in the Product Backlog. The outcome should be a Product Backlog that is granular enough and well understood by the whole team. In average team should spend no more than 10% of the Team Capacity on refinement activities. 
-
-## Agile Product Ownership in a Nutshell

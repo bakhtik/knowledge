@@ -13,6 +13,13 @@ The Scrum Master duties are:
 - Causing the removal of impediments to the Scrum Team's progress.
 - Ensuring that all Scrum events take place and are positive, productive, and kept within the *timebox.*
 
+## Scrum Master's traits:
+
+- Strong leadership skills
+- Efficient facilitator and communicator
+- Knows how to resolve conflicts
+- Aims to effectively coach the team, facilitate events, and eliminate distractors.
+
 ## Characteristics of a great Scrum Master
 
 - **Involves the team with setting up the process.** A great Scrum Master ensures that entire team *supports* the chosen Scum process and *understands the value* of every event.
