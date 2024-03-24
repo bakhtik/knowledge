@@ -47,3 +47,21 @@ Repeatable actions and how to reverse them:
 | Execute a sequence of changes | `qx{changes}q` | `@x` | 'u' |
 
 ## Find and replace by hand
+
+Change the first occurrence by hand and then find and replace every other match one by one.
+
+Alternative to this is to globally replace the match in the file using command `:%s/old/new/g`.
+
+### Be lazy: search without typing
+
+1. Place the cursor on the word and hit the `*` key.
+2. Replace the word: `cw{new word}<Esc>`
+3. Find next occurrence of the match: `n`
+4. Replace, if needed: `.`
+5. Repeat and change if needed: `n.n.n.`
+
+`*` searches forward for the keyword under the cursor on next to the cursor.
+
+`cw` changes the word under the cursor without including following space.
+
+`n` moves to the next occurrence of the match.
