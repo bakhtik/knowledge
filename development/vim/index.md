@@ -12,3 +12,4 @@
 - [Spell checking](spell.md)
 - [Auto-completion](autocomplete.md)
 - [The Dot Strategy](dot.md)
+- [Normal Mode](normal.md)
