@@ -13,3 +13,4 @@
 - [Auto-completion](autocomplete.md)
 - [The Dot Strategy](dot.md)
 - [Normal Mode](normal.md)
+- [Manage Multiple Files](mulfiles.md)
