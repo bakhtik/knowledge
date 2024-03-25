@@ -73,7 +73,7 @@ For example
 :args `cat .files`	// backtick expansion (".file" can contain a filename per line)
 ```
 
-We can use the argument list to group our buffers into a collection. With the `:args {arglist} command, we can clear the list and then repopulate it from scratch.
+We can use the argument list to group our buffers into a collection. With the `:args {arglist}` command, we can clear the list and then repopulate it from scratch.
 
 | The argument list action | Command |
 | ------------------------ | ------- |
@@ -138,3 +138,39 @@ For the full list, look up `:h window-resize`.
 
 Resizing windows can be more convenient to do with mouse by dragging the border of the window.
 
+## Organize you window layouts with tab pages
+
+In Vim, a *tab page* is a container that can hold a collection of windows (`:h tabpage`).
+
+### How to use tabs
+
+Vim's tab pages can be used to partition work into different workspaces.
+
+The `:lcd {path}` command lets us set the working directory locally for the current window (not tab page). If we have a tab page containing several split windows, we could set the local working directory for all of them by running `:windo lcd {path}`. 
+
+### Opening and closing tabs
+
+| Command | Effect |
+|---------|--------|
+| `:tabe[dit] {filename}` | Open `{filename}` in a new tab |
+| `<C-w>T` | Move the current window into its own tab |
+| `:close` | Close the window and the tab page with it |
+| `:tabc[lose]` | Close the current tab page and all of its windows |
+| `:tabo[nly]` | Keep the active tab page, closing all others |
+
+### Switching between tabs
+
+Tabs are numbered starting from 1.
+
+| Ex command | Normal command | Effect |
+|------------|----------------|--------|
+| `:tabn[ext] {N}` | `{N}gt` | Switch to tab page number {N} (remember as *goto tab* {N}) |
+| `:tabn[ext]` | `gt` | Switch to the next tab page |
+| `:tabp[revious]` | `gT` | Switch to the previous tab page |
+
+### Rearranging tabs
+
+We can use the `:tabmove [N]` Ex command to rearrange tab pages.
+
+[N] = 0 - tab page is moved to the beginning
+Omit [N] - tab page is moved to the end
