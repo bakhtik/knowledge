@@ -83,3 +83,58 @@ We can use the argument list to group our buffers into a collection. With the `:
 | Jump to the last file | `:last` |
 | Add file to the list | `:arga {arglist}` |
 | Remove file from the list | `:argd {arglist}` |
+
+## Divide your workspace into split windows
+
+Vim allows us to view multiple buffers side by side by dividing our workspace into split windows.
+
+A *window* is a viewport onto a buffer (`:h window`).
+
+### Creating split windows
+
+![split](img/split.png)
+
+| Command | Effect |
+|---------|--------|
+| `<C-w>s` | Split the current window horizontally, reusing the current buffer in the new window | 
+| `<C-w>v` | Split the current window vertically, reusing the current buffer in the new window | 
+| `:sp[lit] {file}` | Split the current window horizontally, loading `{file}` into the new window | 
+| `:vsp[lit] {file}` | Split the current window vertically, loading `{file}` into the new window | 
+
+You can also run `:edit {filename}` to load another buffer into the active window.
+
+### Changing the focus between windows
+
+For the complete list see `:h window-move-cursor`.
+
+| Command | Effect |
+|---------|--------|
+| `<C-w>w` | Cycle between open windows |
+| `<C-w>h` | Focus on the window to the left |
+| `<C-w>j` | Focus on the window below |
+| `<C-w>k` | Focus on the window above |
+| `<C-w>l` | Focus on the window to the right |
+
+In fact, you can press and hold the `<Ctrl>` key, like `<C-w><C-w>`.
+
+### Closing windows
+
+| Ex command | Normal command | Effect |
+|------------|----------------|--------|
+| `:clo[se]` | `<C-w>c` | Close the active window |
+| `:on[ly]` | `<C-w>o` | Keep only active window, closing all others |
+
+### Resizing and rearranging windows
+
+For the full list, look up `:h window-resize`.
+
+| Keystrokes | Buffer contents |
+|------------|-----------------|
+| `<C-w>=` | Equalize width and height of all windows |
+| `<C-w>_ `  | Maximize height of the active window |
+| `<C-w>|`  | Maximize width of the active window |
+| `[N]<C-w>_ `  | Set active window height to [N] rows |
+| `[N]<C-w>|`  | Set active window width to [N] columns |
+
+Resizing windows can be more convenient to do with mouse by dragging the border of the window.
+
