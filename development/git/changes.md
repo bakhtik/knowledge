@@ -1,4 +1,4 @@
-# Recording changes
+# Git Basics - Recording changes
 
 Typically, you’ll want to start making changes and committing snapshots of those changes into your repository each time the project reaches a *state you want to record*.
 

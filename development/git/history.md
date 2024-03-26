@@ -1,4 +1,4 @@
-# Viewing the commit history
+# Git Basics - Viewing the commit history
 
 - [Viewing the history](#viewing-the-commit-history)
 - [Viewing commits' difference](#viewing-commits-difference)

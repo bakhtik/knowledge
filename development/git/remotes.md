@@ -1,4 +1,4 @@
-# Working with Remotes
+# Git Basics - Working with Remotes
 
 Remote repositories (remotes) are versions of your project that are hosted on the internet or network somewhere.
 

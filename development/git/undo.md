@@ -1,4 +1,4 @@
-# Undoing things in Git
+# Git Basics - Undoing things in Git
 
 - [Amending last commit](#amending-last-commit)
 - [Unstaging a staged file](#unstaging-a-staged-file)
