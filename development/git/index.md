@@ -5,3 +5,4 @@
 - [Undoing things in Git](undo.md)
 - [Wokring with Remotes](remotes.md)
 - [Tagging](tag.md)
+- [Aliases](aliases.md)
