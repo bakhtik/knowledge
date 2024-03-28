@@ -5,11 +5,11 @@ If you don't want to type the entire text of the command, you can set up an alia
 ```console
 $ git config --global alias.co chechout
 $ git config --global alias.br branch
-$ git config --global alias.co commit
+$ git config --global alias.ci commit
 $ git config --global alias.st status
 ``` 
 
-So, instead of typing `git commit`, you just need to type `git ci`.o
+So, instead of typing `git commit`, you just need to type `git ci`.
 
 You can also create commands that you think should exist. For example, for unstaging a file:
 
