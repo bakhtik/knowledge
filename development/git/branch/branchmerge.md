@@ -105,6 +105,8 @@ Because the commit on the branch you're on isn't a direct ancestor of the branch
 
 Instead of just moving the branch pointer forward, Git creates a new snapshot that results from this three-way merge and automatically creates a new commit that points to it. This is referred to as a merge commit, and is special in that it has more than one parent.
 
+![merge commit](img/mergecommit.png)
+
 Now that your work is merged in, you have no further need for the `iss53`. 
 
 ```
