@@ -14,4 +14,5 @@
 - [The Dot Strategy](dot.md)
 - [Normal Mode](normal.md)
 - [Insert Mode](insertmode.md)
+- [Visual Mode](visual.md)
 - [Manage Multiple Files](mulfiles.md)
