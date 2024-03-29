@@ -16,3 +16,4 @@
 - [Insert Mode](insertmode.md)
 - [Visual Mode](visual.md)
 - [Manage Multiple Files](mulfiles.md)
+- [Tabs and spaces](tabs.md)
