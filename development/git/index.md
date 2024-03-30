@@ -13,3 +13,4 @@
 
 - [Branches in a Nutshell](branch/nutshell.md)
 - [Basic Branching and Merging](branch/branchmerge.md)
+- [Branch Management](branch/management.md)
