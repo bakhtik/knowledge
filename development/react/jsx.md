@@ -8,7 +8,7 @@ You can write JavaScript directly within JSX. Simply include the code within cur
 
 JSX must be compiled into JavaScript.
 
-```js
+```jsx
 const JSX = <h1>Hello JSX!</h1>;
 ReactDOM.render(JSX, document.getElementById('root'));
 ```
@@ -17,7 +17,7 @@ ReactDOM.render(JSX, document.getElementById('root'));
 
 JSX must return a *single* element.
 
-```js
+```jsx
 const JSX = (
   <div>
     <h1>Nutrition</h1>
@@ -37,7 +37,7 @@ For readability you might need to add comments to you code.
 
 To put comments inside JSX, you use the syntax `{/* */}`.
 
-```js
+```jsx
 const JSX = (
   <div>
     {/* some insightful comment */}
@@ -53,7 +53,8 @@ With React, we can render JSX directly to HTML DOM using React's rendering API k
 
 ReactDOM offers method `ReactDOM.render(componentToRender, targetNode)`.
 
-```js
+```jsx
+const JSX = (
  <div>
     <h1>Hello World</h1>
     <p>Lets render this to the DOM</p>
@@ -69,7 +70,7 @@ You cannot use `class` to define HTML classes as it is a reserved keyword in Jav
 
 The naming convention for all HTML attributes and event references in JSX become camelCase, like `onClick`, `onChange`, etc.
 
-```js
+```jsx
 const JSX = (
   <div className='myDiv'>
     <h1>Add a class to this div</h1>
@@ -83,7 +84,7 @@ Any JSX element can be written with a self-closing tag, and every element must b
 
 For example, a `<div>` element can be written as `<div />`. 
 
-```js
+```jsx
 const JSX = (
   <div>
     <h2>Welcome to React!</h2> <br />

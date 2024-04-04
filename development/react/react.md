@@ -1,4 +1,4 @@
 # React
 
 - [JSX](jsx.md)
-- [Components](componenets.md)
+- [Components](components.md)
