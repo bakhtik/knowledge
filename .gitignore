@@ -1,3 +1,6 @@
 # vim temp files
 *.swp
 *~
+
+# obsidian files
+.obsidian
