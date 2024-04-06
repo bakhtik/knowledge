@@ -3,6 +3,7 @@
 - [Amazon Web Services](aws/aws.md)
 - [Docker](docker/docker.md)
 - [UX - Usability](ux/ux.md)
+- [Frontend](frontend/frontend.md)
 - [Git](git/git.md)
 - [Vim](vim/vim.md)
 - [Shell](shell/shell.md)
