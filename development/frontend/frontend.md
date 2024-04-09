@@ -1,4 +1,5 @@
 # Frontend
 
-- [CSS Basics](cssbasic.md)
 - [Basic HTML](basichtml.md)
+- [Basics CSS](cssbasic.md)
+- [CSS Colors](csscolors.md)
