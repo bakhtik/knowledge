@@ -11,3 +11,4 @@
 - [SICP](sicp/sicp.md)
 - [PPP](ppp/ppp.md)
 - [React](react/react.md)
+- [Go](go/go.md)
