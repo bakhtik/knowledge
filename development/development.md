@@ -12,3 +12,4 @@
 - [PPP](ppp/ppp.md)
 - [React](react/react.md)
 - [Go](go/go.md)
+- [JavaScript](javascript/javascript.md)
