@@ -4,6 +4,7 @@
 - [Types](#types)
 - [Conversions](#conversions)
 - [Numbers and Math](#numbers-and-math)
+- [Strings](#strings)
 
 ## Variables
 
@@ -181,6 +182,78 @@ val = Math.max(2,33,4,1,55,6,3,-2);	// 55
 val = Math.random(); // random decimal
 
 val = Math.floor(Math.random() * 20 + 1); // radnom integer between 1 and 20
+
+console.log(val);
+```
+
+## Strings
+
+```js
+// String Meothods and Concatenations
+
+const firstName = "William";
+const lastName = "Johnson";
+const age = 36;
+const str = 'Hello there my name is Brad';
+const tags = 'web design,web development';
+
+let val;
+
+val = firstName + lastName;
+
+// Concatenation
+val = firstName + ' ' + lastName;
+
+// Append
+val = 'Brad ';
+val += 'Traversy';
+
+val = 'Hello, my name is ' + firstName + ' and I am ' +  age;
+
+// Escaping
+val = 'That\'s awesome, I can\'t wait';
+
+// Length
+val = firstName.length;
+
+// concat method
+val = firstName.concat(' ', lastName);
+
+// Change case
+val = firstName.toUpperCase();
+val = firstName.toLowerCase();
+
+// treat strings as a readonly arrays
+val = firstName[0]; // 'W'
+
+// indexOf()
+val = firstName.indexOf('l'); // 2
+val = firstName.lastIndexOf('i'); // 4
+
+
+// charAt()
+val = firstName.charAt('2'); // 'l'
+
+// Get last char
+val = firstName.charAt(firstName.length - 1); // 'm'
+
+// Substtings
+val = firstName.substring(0, 4); // 'Will'
+
+// slice()
+val = firstName.slice(0, 4); // 'Will'
+val = firstName.slice(-3); // 'iam'
+
+// split
+val = str.split(' '); // ['Hello', 'there', 'my', ...]
+val = tags.split(',');
+
+// replace
+val = str.replace('Brad', 'Jack');
+
+// inlcudes()
+val = str.includes('Hello'); // true
+val = str.includes('foo'); // false
 
 console.log(val);
 ```
