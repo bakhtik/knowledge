@@ -13,4 +13,4 @@
 - [React](react/react.md)
 - [Go](go/go.md)
 - [JavaScript](javascript/javascript.md)
-- [GameDev](gamedev/gamdedev.md)
+- [GameDev](gamedev/gamedev.md)

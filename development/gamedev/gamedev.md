@@ -1,3 +1,10 @@
 # Game Development
 
-- [Risk and Reward](riks_reward.md)
+## Game Essence
+
+- [Risk and Reward](risk_reward.md)
+
+## Design Specifics
+
+- [Stop for Big Moments](big_moments.md)
+
