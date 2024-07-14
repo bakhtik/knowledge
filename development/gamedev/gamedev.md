@@ -8,3 +8,6 @@
 
 - [Stop for Big Moments](big_moments.md)
 
+## Planning and Game Design
+
+- [Frame Rates](frame_rates.md)
