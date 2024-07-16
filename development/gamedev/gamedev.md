@@ -16,3 +16,7 @@
 ## Grab Bag
 
 - [Down with Lag!](down_with_lag.md)
+
+## Game Concept
+
+- [Kirby's Dream Land](kirbys_dream_land.md)
