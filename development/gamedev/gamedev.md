@@ -20,3 +20,8 @@
 ## Game Concept
 
 - [Kirby's Dream Land](kirbys_dream_land.md)
+
+## Graphics
+
+- [Draw the Light, Not the Asset](draw_the_light.md)
+
