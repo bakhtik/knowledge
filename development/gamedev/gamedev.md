@@ -25,3 +25,6 @@
 
 - [Draw the Light, Not the Asset](draw_the_light.md)
 
+## Work Ethic
+
+- [Game Development Isn't a Game](gamedev_not_a_game.md)
