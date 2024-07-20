@@ -20,6 +20,7 @@
 ## Game Concept
 
 - [Kirby's Dream Land](kirbys_dream_land.md)
+- [Kirby's Adventure](kirbys_adventure.md)
 
 ## Graphics
 
@@ -28,3 +29,4 @@
 ## Work Ethic
 
 - [Game Development Isn't a Game](gamedev_not_a_game.md)
+- [Presentations Are All About Speed](speedy_presentations.md)
