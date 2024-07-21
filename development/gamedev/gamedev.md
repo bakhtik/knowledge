@@ -4,6 +4,7 @@
 
 - [Risk and Reward](risk_reward.md)
 - [Squeeze and Release](squeze_release.md)
+- [Game Essence in Role-Playing Games](essence_in_rpg.md)
 
 ## Design Specifics
 
@@ -30,3 +31,7 @@
 
 - [Game Development Isn't a Game](gamedev_not_a_game.md)
 - [Presentations Are All About Speed](speedy_presentations.md)
+
+## Animation
+
+- [Assigning Animations](assign_animation.md)
