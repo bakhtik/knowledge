@@ -23,7 +23,9 @@ Next, to communicate crucial poses like idling, movement, and attacks, you can u
 - incorporate it into your spec sheet
 
 ![Throw animation](throw_animation.png)
+
 ![Dodge animation](dodge_animation.png)
+
 ![Gun animation](gun_animation.png)
 
 
