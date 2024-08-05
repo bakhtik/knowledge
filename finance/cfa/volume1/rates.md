@@ -39,7 +39,7 @@ Financial assets generate two types of return:
 
 Returns can be measured over a single period or over multiple periods.
 
-## Holding Period Return
+### Holding Period Return
 
 A **holding period return**, R, is the return earned from holding an asset for a single specified period of time.
 
@@ -49,16 +49,70 @@ where the subscript indicates the time of the price or income; (*t*=0) is the be
 
 Return can be expressed in decimals (0.07), fractions (7/100), or as a percent (7 percent). They are all equivalent.
 
-The one-year holding period return that is computed by compounding the three annual raturens:
+The one-year holding period return that is computed by compounding the three annual returns:
 
 $R = [(1+R_1) \times (1+R_2) \times (1+R_3)] - 1$,
 
 where $R_1, R_2$, and $R_3$ are the three annual returns.
 
-## Arithmetic or Mean Return
+Most holding period returns are reported as daily, monthly, or annual returns.
 
-## Geometric Mean Return
+### Arithmetic or Mean Return
 
-## The Harmonic Mean
+When assets have returns for multiple holding periods you need to normalize returns to a common period for easy of comparison and understanding. 
 
+The arithmetic or mean return (a simple arithmetic average of the holding period returns) is denoted by $\overline{R_i}$ and given by the following equation for asset *i*, where $R_{it}$ is the return in period *t* and *T* is the total number of periods:
 
+$\overline{R_i}=\frac{R_{i1}+R_{i2}+\ldots+R_{i,T-1}+R_{iT}}{T}=\frac{1}{T}\displaystyle\sum_{t=1}^TR_{it}$, (2)
+
+The arithmetic mean return assumes that the amount invested at the beginning of each period is the same.
+
+In general, the arithmetic return is biased upward unless each of the underlying holding period returns are equal.
+
+It should be used if we want to estimate the average return over a one-period horizon.
+
+### Geometric Mean Return
+
+The previous year's earnings can be added to the beginning value of the subsequent year's investment - these earning will be "compounded" by the returns earned in that subsequent year. We can use the geometric mean return to account for the compounding of returns.
+
+The geometric mean return is denoted $\overline{R_{Gi}}$ and given by the following equation for asset *i*:
+
+$\overline{R_{Gi}}=\sqrt[T]{(1+R_{i1}) \times (1+R_{i2}) \times \ldots \times (1+R_{i,T-1}) \times (1+R_{iT})}-1=\sqrt[T]{\displaystyle\prod_{t=1}^T(1+R_t)} - 1$, (3)
+
+where $R_{it}$ is the return in period *t* and *T* is the total number of periods.
+
+The geometric mean is always less than or equal to the arithmetic mean. The two means will be equal when all the observations in the series are equal.
+
+The geometric mean return represents the growth rate or compound rate of return on an investment. With its focus on the actual return of an investment over a multiple-period horizon, the geometric mean is of key interest to investors. The arithmetic mean return, focusing on average single-period performance, is also of interest.
+
+Geometric mean of returns should be used if we want to estimate the average returns over more than one period, because it captures how the total returns are linked over time.
+
+### The Harmonic Mean
+
+The **harmonic mean**, $\overline{X_H}$, is appropriate in cases in which the variable is a rate or a ratio.
+
+The harmonic mean of a set of observations $X_1, X_2, \ldots, X_n$ is:
+
+$\overline{X_H}=\frac{n}{\displaystyle\sum_{i=1}^n(1/X_i)}$, (4)
+
+with $X_i > 0$ for *i* = 1, 2, ..., n.
+
+The harmonic mean is the value obtained by summing the reciprocals of the observations, and then averaging their sum by dividing it by the number of observations, *n*, and then finally, taking the reciprocal of that average.
+
+The harmonic mean may be viewed as a special type of weighted mean in which an observation's weight is inversely proportional to its magnitude. For example, for the observations of 1, 2, 3, 4, 5, 6, and 1000, the harmonic mean is 2.8560. We can see the influence of the outlier (the 1000) is much less that, say, in the arithmetic mean (145.8571). So, the harmonic mean is quite useful as a measure of central tendency in the presence of outliers.
+
+The harmonic mean is used most often when the data consists of rates and ratios, such as P/Es.
+
+Arithmetic mean x Harmonic mean = (Geometric mean)^2
+
+Harmonic mean is always less than geometric mean.
+
+Two other types of means, the trimmed and the winsorized means seek to minimize the impact of outliers in a dataset.
+
+The **trimmed mean** removes a small defined percentage of the largest and smallest values from a dataset containing our observation before calculating the mean by averaging the remaining observations.
+
+The **winsorized mean** is calculated after replacing extreme values at both ends with the values of their nearest observations, and then calculating the mean by averaging the remaining observations.
+
+![which mean to use](img/which_mean_to_use.png)
+
+## Money-Weighted And Time-Weighted Return
