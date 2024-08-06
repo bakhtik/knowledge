@@ -116,3 +116,48 @@ The **winsorized mean** is calculated after replacing extreme values at both end
 ![which mean to use](img/which_mean_to_use.png)
 
 ## Money-Weighted And Time-Weighted Return
+
+> compare the money-weighted and time-weighted rates of return and evaluate the performance of portfolios based on these measures
+
+The arithmetic and geometric return computations do not account for the timing of cash flows into and out of a portfolio.
+
+### Calculating the Money Weighted Return
+
+The **money-weighted return** accounts for the money invested and provides the investor with information on the actual return she earns on her investments. 
+
+The **internal rate of return** is the discount rate at which the sum of present values of cash flows will equal zero.
+
+$\displaystyle\sum_{t=0}^T\frac{CF_t}{(1+IRR)^t} = 0$, (5)
+
+where *T* is the number of periods, $CF_t$ is the cash flow at time *t*, and IRR is the internal rate of return or the money-weighted rate of return.
+
+A cash flow can be positive or negative; a positive cash flow is an inflow where money flows to the investor, whereas a negative cash flow is an outflow where money flows away from investor.
+
+IRR tells the investor what she earned on the actual euros invested for the entire period on an annualized basis.
+
+The money-weighted rate of return takes into account cash flows, thus it is called "money-weighted".
+
+The money-weighted return is an accurate measure of what the investor earned on the money invested. But it does not allow for a return comparison between different individuals or different investment opportunities (i.e. cash flows differs).
+
+### Computing Time-Weighted Returns
+
+The **time-weighted rate of return** measures the compound rate of growth of USD1 initially invested in the portfolio over a stated measurement period, thus it is not sensitive to the additions and withdrawals of funds.
+
+To compute an exact time-weighted rate of return on a portfolio, take the following three steps:
+
+1. Price the portfolio immediately prior to any significant addtion or withdrawal of funds. Break the overall evaluation period into subperiods based on the dates of cash inflows and outflows.
+
+2. Calculate the holding period return on the portfolio for each subperiod.
+
+3. Link or compound holding period returns to obtain an annual rate of return for the year (the time-weighted rate of return for the year). If investment is for more than one year, take the geometric mean of the annual returns to obtain the time-weighted rate of return over that measurement period. 
+
+We can obtain resaonable approximation  of the time-weighted rate of return by valuing the portfolio at frequent, regular intervals. Daily valuation is commonplace:
+
+$(1+R_1) \times (1+R_2) \times \ldots \times (1+R_{365}) - 1$
+
+Annualized time-weighted return as the geometric mean of N annual returns:
+
+$R_{TW} = [(1+R_1) \times (1+R_2) \times \ldots \times (1+R_N)]^{1/N} - 1$, (6)
+
+where $R_i$ is the time-weighted return for year i.
+
