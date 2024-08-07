@@ -151,7 +151,7 @@ To compute an exact time-weighted rate of return on a portfolio, take the follow
 
 3. Link or compound holding period returns to obtain an annual rate of return for the year (the time-weighted rate of return for the year). If investment is for more than one year, take the geometric mean of the annual returns to obtain the time-weighted rate of return over that measurement period. 
 
-We can obtain resaonable approximation  of the time-weighted rate of return by valuing the portfolio at frequent, regular intervals. Daily valuation is commonplace:
+We can obtain reasonable approximation  of the time-weighted rate of return by valuing the portfolio at frequent, regular intervals. Daily valuation is commonplace:
 
 $(1+R_1) \times (1+R_2) \times \ldots \times (1+R_{365}) - 1$
 
@@ -160,4 +160,68 @@ Annualized time-weighted return as the geometric mean of N annual returns:
 $R_{TW} = [(1+R_1) \times (1+R_2) \times \ldots \times (1+R_N)]^{1/N} - 1$, (6)
 
 where $R_i$ is the time-weighted return for year i.
+
+## Annualized Return
+
+> calculate and interpret annualized return measures and continuously compounded returns, and describe their appropriate uses
+
+It is most convenient to annualize all available returns to facilitate comparison. Thus, daily, weekly, monthly, and quarterly returns are converted to annualized returns.
+
+### Non-annual Compounding
+
+Interest may be paid semiannually, quarterly, monthly, or even daily. 
+
+The formula for present value with more than one compounding period in a year:
+
+$PV = FV_N(1 + \frac{R_s}{m})^{-mN}$, (7)
+
+where
+
+*m* = number of compounding periods per year,
+$R_S$ = quoted annual interest rate, that equals the periodic interest rate multiplied ny the number of compounding periods in each year.
+*N* = number of years
+
+Present value and future value factors are reciprocals.
+
+### Annualizing Returns
+
+To annualize any return for a period shorter than one year, the return for the period must be compounded by the number of periods in a year. A monthly return is compounded 12 times, weekly - 52 times, quarterly - 4 times, and daily returns are normally compounded 365 times. For uncommon number of days, we compound by the ratio of 365 to the number of days.
+
+$R_{annual} = (1 + R_{period})^c - 1$, (8) 
+
+where c is the number of periods in a year.
+
+$R_{annual} = (1 + R_{weekly})^{52} - 1 = (1+0.2\%)^{52}-1 = 0.1095 = 10.95\%$
+
+If the return for 15 days in 0.4 percent, then
+
+$R_{annual} = (1 + R_{15})^{365/15} - 1 = (1.004)^{365/15}-1 = 0.1020 = 10.20\%$
+
+One major limitation of annualizing returns is the implicit assumption that returns can be repeated porecisely, that is, money can be reinvested repeatedly while earning a similar return. This type of return is not always possible.
+
+### Continuously Compounded Returns
+
+The **continuously compounded return** associated with a holding period return is the natural logarithm of one plus that holding period return, or equivalently, the natutal logarithm of the ending price over the beginning price (the price relative).
+
+The continuously compounded return from *t* to *t* + 1 is
+
+$r_{t, t+1} = ln(P_{t+1}/P_t) = ln(1 + R_{t,t+1})$. (10)
+
+If our investmen horizon extends from *t*=0 yo *t=T*, then continuously compounded return to *T* is
+
+$r_{0,T}=ln(P_T/P_0)$. (11)
+
+$exp(r_{0,T})=exp[ln(P_T/P_0)]=P_T/P_0$, so
+
+$P_T = P_0exp(r_{0,T})$
+
+We can also express $P_T/P_0$ as the product of price relatives:
+
+$P_T/P_0 = (P_T/P_{T-1})(P_{T-1}/P_{T-2}) \ldots (P_1/P_0)$, (12)
+
+Taking logs of both sides of this equation, we find that the continuously compounded return to time *T* is the sum of the one-period continuously compounded retunrs:
+
+$r_{0,T}=r_{T-1,T} + r_{T-2,T-1} + \ldots + r_{0,1}$. (13)
+
+
 

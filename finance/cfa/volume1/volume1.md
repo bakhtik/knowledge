@@ -1,5 +1,5 @@
 # Quanitative Methods. Economics
 
-## Quantitative Mothods
+## Quantitative Methods
 
-- [Module 1. Rates amd Returns](rates.md)
+- [Module 1. Rates and Returns](rates.md)

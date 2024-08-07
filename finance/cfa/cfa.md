@@ -1,3 +1,3 @@
 # CFA
 
-- [Quantitative Methids, Economics](volume1/volume1.md)
+- [Quantitative Methods, Economics](volume1/volume1.md)
