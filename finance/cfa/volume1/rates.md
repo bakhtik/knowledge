@@ -219,9 +219,48 @@ We can also express $P_T/P_0$ as the product of price relatives:
 
 $P_T/P_0 = (P_T/P_{T-1})(P_{T-1}/P_{T-2}) \ldots (P_1/P_0)$, (12)
 
-Taking logs of both sides of this equation, we find that the continuously compounded return to time *T* is the sum of the one-period continuously compounded retunrs:
+Taking logs of both sides of this equation, we find that the continuously compounded return to time *T* is the sum of the one-period continuously compounded returns:
 
 $r_{0,T}=r_{T-1,T} + r_{T-2,T-1} + \ldots + r_{0,1}$. (13)
 
+## Other Major Return Measures And Their Applications
 
+> calculate and interpret major return measures and describe their appropriate uses
 
+### Gross and Met Return
+
+A gross return is the return earned by an asset manager prior to deductions for:
+
+- management expenses
+- custodial fees
+- taxes
+- other expenses related to the management and administration of an investment
+
+These expenses are not deducted from the gross return.
+
+Trading expenses (i.e., commissions) *are* accounted for in (i.e., deducted from) the computation of gross return because trading expenses contribute directly to the return earned by the manager.
+
+Net return is a measure of what the investment vehicle (i.e., mutual fund) has earned for the investor. Net return accounts for (i.e., deducts) all managerial and administrative expenses that reduce an investor's return.
+
+### Pre-Tax and After-Tax Nominal Return
+
+Pre-tax nominal returns are the returns for which no adjustments has been made for taxes or inflation. In general, all returns are pre-tax nominal returns unless they are otherwise designated.
+
+Tax liability associated with returns:
+
+- short-term capital gains
+- long-term capital gains: receive preferential tax treatment
+- interest income: is taxed as ordinary income
+- dividend income: may have a lower tax rate
+
+After-tax nominal return is computed as the total return minus any allowance for taxes on dividends, interest, and **realized** gains.
+
+The investment manager can minimize the tax liability by selecting appropriate securities (those subject to more favorable taxation) and reducing trading turnover.
+
+### Real Returns
+
+The real risk-free return and the risk premium are combined to arrive the real "risky" rate and is referred to as the real return, or:
+
+$(1 + real return) = \frac{(1 + real risk-free rate)(1 + risk premium)}{1 + inflation premium}$, (14)
+
+Real returns are useful in comparing returns across time period because inflation rates may vary over time.
