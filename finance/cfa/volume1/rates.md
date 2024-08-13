@@ -264,3 +264,22 @@ The real risk-free return and the risk premium are combined to arrive the real "
 $(1 + real return) = \frac{(1 + real risk-free rate)(1 + risk premium)}{1 + inflation premium}$, (14)
 
 Real returns are useful in comparing returns across time period because inflation rates may vary over time.
+
+The after-tax real return is what the investor receives as compensation for postponding consumption and assuming risk after paying taxes on investment returns.
+
+### Leveraged Return
+
+There are two way of creating a claim on asset returns that are greater than the investment of one's own money:
+
+- trade futures contracts: 10% of the asses value, both the gains and losses are amplified by a factor of 10
+- borrow money: if 50% is borrowed, gross return is doubled, but the interest to be paid on borrowed money
+
+$R_L = \frac{Portfolio-return}{Portfolio-equity} = \frac{[R_p \times (V_E+V_B)-(V_B \times r_D)]}{V_E} = R_p + \frac{V_B}{V_E}(R_p - r_D)$, (15)
+
+where $R_p$ - total investment return earned on the leveraged portfolio
+$r_D$ - the borrowing cost on debt
+$R_L$ - the return on a leveraged portfolio
+$V_E$ - the quity of the portfolio
+$V_B$ - the debt or borrowed funds
+
+If $R_p < r_D$ then leverage decreases $R_L$.
